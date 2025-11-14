@@ -144,7 +144,7 @@ const Vocabulary = () => {
         {/* Page Title */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-extrabold text-gray-900 mb-3 flex items-center justify-center gap-3">
-            <span className="text-5xl">📚</span>
+            {/* <span className="text-5xl">📚</span> */}
             DeFi Vocabulary
           </h1>
           <p className="text-gray-600">Learn the language of decentralized finance</p>

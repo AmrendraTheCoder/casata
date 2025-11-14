@@ -71,7 +71,7 @@ const HowToUse = () => {
         {/* Page Title */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-extrabold text-gray-900 mb-3 flex items-center justify-center gap-3">
-            <span className="text-5xl">📖</span>
+            {/* <span className="text-5xl">📖</span> */}
             How to Use YieldShift
           </h1>
           <p className="text-gray-600">Master YieldShift in 5 simple steps</p>
@@ -79,7 +79,7 @@ const HowToUse = () => {
         {/* Introduction */}
         <div className="card-premium mb-12 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-            Welcome to YieldShift! 👋
+            Welcome to YieldShift!
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
             YieldShift is your AI-powered companion for maximizing DeFi yields.
