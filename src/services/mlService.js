@@ -2,8 +2,9 @@ import axios from 'axios';
 import { calculateMigrationScore, calculateNetGain, calculateBreakeven, calculateDailyYield } from '../utils/calculations';
 
 // Get ML service URL from environment
+// Default to port 5001 to avoid macOS AirPlay Receiver conflict on port 5000
 const getMLServiceUrl = () => {
-  return import.meta.env.VITE_ML_SERVICE_URL || 'http://localhost:5000';
+  return import.meta.env.VITE_ML_SERVICE_URL || 'http://localhost:5001';
 };
 
 // Check if ML service is available

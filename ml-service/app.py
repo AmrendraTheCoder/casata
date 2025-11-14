@@ -109,13 +109,17 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
+    import os
+    # Use port 5001 to avoid conflict with macOS AirPlay Receiver (port 5000)
+    port = int(os.environ.get('PORT', 5001))
+    
     print("🚀 YieldShift ML Service starting...")
     print("📊 Endpoints available:")
     print("   GET  /health          - Health check")
     print("   POST /api/score       - Score single opportunity")
     print("   POST /api/batch-score - Score multiple opportunities")
     print("   POST /api/predict     - Predict yield trend")
-    print("\n✅ Service running on http://localhost:5000")
+    print(f"\n✅ Service running on http://localhost:{port}")
     
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 

@@ -195,13 +195,13 @@ const Vocabulary = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Page Title */}
+        {/* Page Title */}
       <div className="mb-12">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-2">DeFi Vocabulary</h1>
         <p className="text-lg text-gray-600">Learn the language of decentralized finance</p>
-      </div>
+        </div>
 
-      {/* Introduction */}
+        {/* Introduction */}
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 mb-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Master the Language of DeFi
@@ -212,7 +212,7 @@ const Vocabulary = () => {
           </p>
         </div>
 
-      {/* Category Filter */}
+        {/* Category Filter */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
           {categories.map(category => (
             <button
@@ -229,13 +229,13 @@ const Vocabulary = () => {
           ))}
         </div>
 
-      {/* Terms Grid */}
-      <div className="grid gap-6">
-        {filteredTerms.map((item, index) => (
-          <div 
-            key={index}
+        {/* Terms Grid */}
+        <div className="grid gap-6">
+          {filteredTerms.map((item, index) => (
+            <div 
+              key={index}
             className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
-          >
+            >
               <div className="flex gap-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
@@ -277,7 +277,7 @@ const Vocabulary = () => {
           ))}
         </div>
 
-      {/* Help Section */}
+        {/* Help Section */}
       <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-8 mt-8 text-center">
         <div className="text-5xl mb-4">🤔</div>
         <h3 className="text-2xl font-bold text-gray-900 mb-4">Still confused?</h3>

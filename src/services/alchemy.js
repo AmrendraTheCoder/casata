@@ -15,10 +15,16 @@ const getAlchemyUrl = (chainId) => {
     return null;
   }
   
+  // Testnet URLs (current configuration)
   const urlMap = {
-    1: `https://eth-mainnet.g.alchemy.com/v2/${key}`,
-    8453: `https://base-mainnet.g.alchemy.com/v2/${key}`,
-    42161: `https://arb-mainnet.g.alchemy.com/v2/${key}`
+    11155111: `https://eth-sepolia.g.alchemy.com/v2/${key}`, // Sepolia
+    84532: `https://base-sepolia.g.alchemy.com/v2/${key}`, // Base Sepolia
+    421614: `https://arb-sepolia.g.alchemy.com/v2/${key}`, // Arbitrum Sepolia
+    
+    // Mainnet URLs (uncomment when ready to switch to mainnet)
+    // 1: `https://eth-mainnet.g.alchemy.com/v2/${key}`,
+    // 8453: `https://base-mainnet.g.alchemy.com/v2/${key}`,
+    // 42161: `https://arb-mainnet.g.alchemy.com/v2/${key}`
   };
   
   return urlMap[chainId] || null;
@@ -131,7 +137,12 @@ export const fetchAllBalances = async (address) => {
     throw new Error('Address is required');
   }
   
-  const chainIds = [1, 8453, 42161]; // Ethereum, Base, Arbitrum
+  // Testnet chain IDs (current configuration)
+  const chainIds = [11155111, 84532, 421614]; // Sepolia, Base Sepolia, Arbitrum Sepolia
+  
+  // Mainnet chain IDs (use these when switching to mainnet)
+  // const chainIds = [1, 8453, 42161]; // Ethereum, Base, Arbitrum
+  
   const allBalances = {};
   
   for (const chainId of chainIds) {

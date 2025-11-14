@@ -1,4 +1,4 @@
-// Mock positions for demo
+// Mock positions for demo - College Student Profile
 export const MOCK_POSITIONS = [
   {
     id: '1',
@@ -8,11 +8,11 @@ export const MOCK_POSITIONS = [
     chainId: 1,
     asset: 'USDC',
     assetLogo: '💵',
-    amount: 12300,
+    amount: 450,
     currentApy: 8.1,
     status: 'underperforming',
-    daysDeployed: 45,
-    totalEarned: 123.45
+    daysDeployed: 35,
+    totalEarned: 3.52
   },
   {
     id: '2',
@@ -22,11 +22,11 @@ export const MOCK_POSITIONS = [
     chainId: 1,
     asset: 'ETH',
     assetLogo: '⟠',
-    amount: 8.5,
+    amount: 0.3,
     currentApy: 3.2,
     status: 'optimal',
-    daysDeployed: 120,
-    totalEarned: 0.89
+    daysDeployed: 65,
+    totalEarned: 0.0172
   },
   {
     id: '3',
@@ -36,15 +36,15 @@ export const MOCK_POSITIONS = [
     chainId: 42161,
     asset: 'USDT',
     assetLogo: '💲',
-    amount: 5400,
+    amount: 150,
     currentApy: 6.5,
     status: 'underperforming',
-    daysDeployed: 30,
-    totalEarned: 29.59
+    daysDeployed: 22,
+    totalEarned: 0.59
   }
 ];
 
-// Mock opportunities for migration
+// Mock opportunities for migration - College Student Amounts
 export const MOCK_OPPORTUNITIES = [
   {
     positionId: '1',
@@ -54,33 +54,33 @@ export const MOCK_OPPORTUNITIES = [
     targetChainId: 8453,
     asset: 'USDC',
     assetLogo: '💵',
-    amount: 12300,
+    amount: 450,
     currentApy: 8.1,
     targetApy: 14.2,
     apyDifferential: 6.1,
     score: 91,
-    annualGain: 748,
+    annualGain: 27.45,
     costs: {
-      bridge: 3.20,
-      gas: 0.80,
-      total: 4.00
+      bridge: 1.20,
+      gas: 0.50,
+      total: 1.70
     },
-    breakeven: 1.6, // days
+    breakeven: 22.6, // days
     protocolSafetyScore: 9,
     socialProof: {
-      similarWallets: 47,
-      avgGain: 892,
+      similarWallets: 127,
+      avgGain: 32,
       timeframe: '7 days'
     },
     timing: {
-      recommendation: 'Move in next 48 hours',
-      reason: 'Gas prices expected to drop 15%',
-      urgency: 'high'
+      recommendation: 'Great learning opportunity',
+      reason: 'Low cost, high APY gain',
+      urgency: 'medium'
     },
     migrationSteps: [
-      'Withdraw 12,300 USDC from Aave V3 on Ethereum',
-      'Bridge USDC from Ethereum to Base via Across Protocol ($3.20 fee)',
-      'Deposit 12,300 USDC to Aave V3 on Base',
+      'Withdraw 450 USDC from Aave V3 on Ethereum',
+      'Bridge USDC from Ethereum to Base via Across Protocol ($1.20 fee)',
+      'Deposit 450 USDC to Aave V3 on Base',
       'Start earning 14.2% APY'
     ]
   },
@@ -92,33 +92,33 @@ export const MOCK_OPPORTUNITIES = [
     targetChainId: 8453,
     asset: 'USDC',
     assetLogo: '💵',
-    amount: 12300,
+    amount: 450,
     currentApy: 8.1,
     targetApy: 12.8,
     apyDifferential: 4.7,
     score: 78,
-    annualGain: 578,
+    annualGain: 21.15,
     costs: {
-      bridge: 3.20,
-      gas: 0.80,
-      total: 4.00
+      bridge: 1.20,
+      gas: 0.50,
+      total: 1.70
     },
-    breakeven: 2.5, // days
+    breakeven: 29.3, // days
     protocolSafetyScore: 8.5,
     socialProof: {
-      similarWallets: 23,
-      avgGain: 645,
+      similarWallets: 89,
+      avgGain: 24,
       timeframe: '14 days'
     },
     timing: {
-      recommendation: 'Good opportunity, consider this week',
-      reason: 'APY stable for past 30 days',
-      urgency: 'medium'
+      recommendation: 'Good starter opportunity',
+      reason: 'Compound is beginner-friendly',
+      urgency: 'low'
     },
     migrationSteps: [
-      'Withdraw 12,300 USDC from Aave V3 on Ethereum',
-      'Bridge USDC from Ethereum to Base via Across Protocol ($3.20 fee)',
-      'Deposit 12,300 USDC to Compound V3 on Base',
+      'Withdraw 450 USDC from Aave V3 on Ethereum',
+      'Bridge USDC from Ethereum to Base via Across Protocol ($1.20 fee)',
+      'Deposit 450 USDC to Compound V3 on Base',
       'Start earning 12.8% APY'
     ]
   },
@@ -130,33 +130,33 @@ export const MOCK_OPPORTUNITIES = [
     targetChainId: 8453,
     asset: 'USDT',
     assetLogo: '💲',
-    amount: 5400,
+    amount: 150,
     currentApy: 6.5,
     targetApy: 11.2,
     apyDifferential: 4.7,
     score: 82,
-    annualGain: 254,
+    annualGain: 7.05,
     costs: {
-      bridge: 2.80,
-      gas: 0.60,
-      total: 3.40
+      bridge: 0.80,
+      gas: 0.40,
+      total: 1.20
     },
-    breakeven: 4.9, // days
+    breakeven: 62.1, // days
     protocolSafetyScore: 9,
     socialProof: {
-      similarWallets: 31,
-      avgGain: 287,
+      similarWallets: 156,
+      avgGain: 8,
       timeframe: '7 days'
     },
     timing: {
-      recommendation: 'Move soon',
-      reason: 'High APY on Base likely to persist',
-      urgency: 'high'
+      recommendation: 'Consider after gaining experience',
+      reason: 'Smaller amount, learn basics first',
+      urgency: 'low'
     },
     migrationSteps: [
-      'Withdraw 5,400 USDT from Compound V3 on Arbitrum',
-      'Bridge USDT from Arbitrum to Base via Across Protocol ($2.80 fee)',
-      'Deposit 5,400 USDT to Aave V3 on Base',
+      'Withdraw 150 USDT from Compound V3 on Arbitrum',
+      'Bridge USDT from Arbitrum to Base via Across Protocol ($0.80 fee)',
+      'Deposit 150 USDT to Aave V3 on Base',
       'Start earning 11.2% APY'
     ]
   }
@@ -180,36 +180,36 @@ export const MOCK_APY_HISTORY = {
   ]
 };
 
-// Mock wallet balances
+// Mock wallet balances - College Student
 export const MOCK_WALLET_BALANCES = {
   '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb': {
     ethereum: {
-      USDC: 12300,
-      ETH: 8.5,
+      USDC: 450,
+      ETH: 0.3,
       USDT: 0
     },
     base: {
       USDC: 0,
-      ETH: 0.5,
+      ETH: 0.05,
       USDT: 0
     },
     arbitrum: {
       USDC: 0,
       ETH: 0,
-      USDT: 5400
+      USDT: 150
     }
   }
 };
 
-// Mock portfolio summary
+// Mock portfolio summary - College Student
 export const MOCK_PORTFOLIO_SUMMARY = {
-  totalValue: 45234,
-  currentYield: 2789, // Annual
-  potentialYield: 3856, // If all migrations executed
-  missedOpportunities: 1067,
+  totalValue: 1200,
+  currentYield: 72, // Annual
+  potentialYield: 107, // If all migrations executed
+  missedOpportunities: 35,
   activePositions: 3,
   underperformingPositions: 2,
-  healthScore: 68 // Out of 100
+  healthScore: 64 // Out of 100
 };
 
 // Check if mock data should be used

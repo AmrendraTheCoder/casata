@@ -7,8 +7,12 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
 
   // Generate random NFT attributes based on health score
   const nftAttributes = useMemo(() => {
-    const seed = healthScore + (stats?.totalBalance || 0) * 100;
-    const random = (max, min = 0) => Math.floor((Math.sin(seed + max) * 10000) % (max - min + 1)) + min;
+    const safeHealthScore = healthScore || 50; // Default to 50 if undefined
+    const seed = safeHealthScore + (stats?.totalBalance || 0) * 100;
+    const random = (max, min = 0) => {
+      const value = Math.abs(Math.floor((Math.sin(seed + max) * 10000) % (max - min + 1)) + min);
+      return Math.min(Math.max(value, min), max); // Clamp between min and max
+    };
 
     // Color palettes based on health score
     const palettes = {
@@ -34,11 +38,13 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
 
     // Select palette based on health
     let category = 'poor';
-    if (healthScore >= 80) category = 'excellent';
-    else if (healthScore >= 60) category = 'good';
-    else if (healthScore >= 40) category = 'fair';
+    if (safeHealthScore >= 80) category = 'excellent';
+    else if (safeHealthScore >= 60) category = 'good';
+    else if (safeHealthScore >= 40) category = 'fair';
 
-    const selectedPalette = palettes[category][random(palettes[category].length - 1)];
+    const categoryPalettes = palettes[category];
+    const paletteIndex = random(categoryPalettes.length - 1, 0);
+    const selectedPalette = categoryPalettes[paletteIndex] || categoryPalettes[0]; // Fallback to first palette
 
     // Random attributes
     const patterns = ['dots', 'grid', 'waves', 'hexagons', 'circles'];
@@ -47,12 +53,12 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
 
     return {
       palette: selectedPalette,
-      pattern: patterns[random(patterns.length - 1)],
-      frame: frames[random(frames.length - 1)],
-      badge: badges[random(badges.length - 1)],
+      pattern: patterns[random(patterns.length - 1, 0)] || 'dots',
+      frame: frames[random(frames.length - 1, 0)] || 'standard',
+      badge: badges[random(badges.length - 1, 0)] || '🎯',
       uniqueId: `#${random(9999, 1000)}`,
       edition: `${random(500, 1)} / 500`,
-      rarity: healthScore >= 90 ? 'Legendary' : healthScore >= 75 ? 'Epic' : healthScore >= 60 ? 'Rare' : healthScore >= 40 ? 'Uncommon' : 'Common',
+      rarity: safeHealthScore >= 90 ? 'Legendary' : safeHealthScore >= 75 ? 'Epic' : safeHealthScore >= 60 ? 'Rare' : safeHealthScore >= 40 ? 'Uncommon' : 'Common',
     };
   }, [healthScore, stats]);
 
@@ -79,13 +85,15 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
   };
 
   const getHealthStatus = (score) => {
-    if (score >= 80) return { label: 'Excellent', emoji: '🏆', color: 'text-emerald-400' };
-    if (score >= 60) return { label: 'Good', emoji: '⭐', color: 'text-blue-400' };
-    if (score >= 40) return { label: 'Fair', emoji: '💎', color: 'text-yellow-400' };
+    const safeScore = score || 50; // Default to 50 if undefined
+    if (safeScore >= 80) return { label: 'Excellent', emoji: '🏆', color: 'text-emerald-400' };
+    if (safeScore >= 60) return { label: 'Good', emoji: '⭐', color: 'text-blue-400' };
+    if (safeScore >= 40) return { label: 'Fair', emoji: '💎', color: 'text-yellow-400' };
     return { label: 'Needs Attention', emoji: '🔥', color: 'text-orange-400' };
   };
 
   const status = getHealthStatus(healthScore);
+  const safeHealthScore = healthScore || 50; // Safe default for rendering
 
   // Pattern component
   const BackgroundPattern = ({ pattern }) => {
@@ -235,7 +243,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
                   <div className="text-white/70 text-xs uppercase tracking-wider mb-2">Health Score</div>
                   <div className="flex items-center justify-center gap-2">
                     <div className={`text-7xl font-black bg-gradient-to-br ${nftAttributes.palette.accent} bg-clip-text text-transparent`}>
-                      {healthScore}
+                      {safeHealthScore}
                     </div>
                     <div className="text-3xl text-white/80 font-bold">/100</div>
                   </div>
@@ -245,7 +253,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
                   <div className="w-full bg-white/20 rounded-full h-3 mt-4 overflow-hidden">
                     <div
                       className={`h-3 rounded-full bg-gradient-to-r ${nftAttributes.palette.accent} transition-all duration-1000`}
-                      style={{ width: `${healthScore}%` }}
+                      style={{ width: `${safeHealthScore}%` }}
                     ></div>
                   </div>
                 </div>

@@ -261,7 +261,7 @@ const Router = () => {
               </section>
 
               {/* How It Works - Apple Style */}
-              <section className="bg-gray-50 py-20">
+              {/* <section className="bg-gray-50 py-20">
                 <div className="max-w-4xl mx-auto px-6">
                   <h2 className="text-5xl font-semibold text-center text-gray-900 mb-16">
                     How it works
@@ -311,38 +311,7 @@ const Router = () => {
                     </div>
                   </div>
                 </div>
-              </section>
-
-                {/* Final CTA with Social Proof */}
-                {/* <div className="card-premium max-w-2xl mx-auto text-center">
-                    <div className="text-5xl mb-4">🚀</div>
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                      Start Earning More Today
-                    </h3>
-                    <p className="text-lg text-gray-700 mb-6">
-                      Join farmers already earning 30-40% more yield
-                    </p>
-                    <div className="mb-6">
-                      <WalletConnect />
-                    </div>
-                    <div className="flex items-center justify-center gap-4 text-sm text-gray-700 bg-gray-50 rounded-lg p-3 border border-gray-200">
-                      <div className="flex items-center gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Free to use</span>
-                      </div>
-                      <div className="w-px h-4 bg-gray-300"></div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>Read-only</span>
-                      </div>
-                      <div className="w-px h-4 bg-gray-300"></div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-green-600">✓</span>
-                        <span>No risk</span>
-                      </div>
-                    </div>
-                  </div> */}
-              </div>
+              </section> */}
             </main>
 
             {/* Final CTA - Apple Style */}
@@ -354,7 +323,7 @@ const Router = () => {
                 <p className="text-xl text-gray-600 mb-12">
                   Connect your wallet and find better yields in seconds.
                 </p>
-                {!isConnected ? (
+                {/* {!isConnected ? (
                   <div className="flex flex-col items-center gap-4">
                     <WalletConnect />
                     <p className="text-sm text-gray-500">Free • Read-only • No risk</p>
@@ -367,7 +336,7 @@ const Router = () => {
                     View My Portfolio
                     <span>→</span>
                   </button>
-                )}
+                )} */}
               </div>
             </section>
 

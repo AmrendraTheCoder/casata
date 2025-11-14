@@ -107,7 +107,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-3">
       {/* Info Bar - Sticky at top */}
       <div className="mb-6 flex items-center justify-between bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2.5 shadow-sm">
         <div className="flex items-center gap-4 text-xs text-gray-600">

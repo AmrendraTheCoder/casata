@@ -28,7 +28,7 @@ const PortfolioChart = ({ data = [], type = 'line' }) => {
             stroke="#9ca3af"
             style={{ fontSize: '10px' }}
             tickLine={false}
-            tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+            tickFormatter={(value) => value >= 1000 ? `$${(value / 1000).toFixed(1)}k` : `$${value}`}
           />
           <Tooltip 
             contentStyle={{ 
@@ -54,17 +54,18 @@ const PortfolioChart = ({ data = [], type = 'line' }) => {
   );
 };
 
-// Generate mock data for demo
+// Generate mock data for demo - College Student Portfolio
 const generateMockData = () => {
   const now = Date.now();
   const data = [];
   for (let i = 30; i >= 0; i--) {
     const date = new Date(now - i * 24 * 60 * 60 * 1000);
-    const baseValue = 45000;
-    const variation = Math.random() * 5000 - 2500;
+    const baseValue = 950; // College student starting point ~$950
+    const variation = Math.random() * 150 - 75; // Smaller swings
+    const growth = (30 - i) * 8; // Gradual growth ~$8/day as they add funds
     data.push({
       date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-      value: Math.round(baseValue + variation + (30 - i) * 100)
+      value: Math.round(baseValue + variation + growth)
     });
   }
   return data;

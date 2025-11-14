@@ -78,13 +78,13 @@ const HowToUse = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Page Title */}
+        {/* Page Title */}
       <div className="mb-12">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-2">How to Use YieldShift</h1>
         <p className="text-lg text-gray-600">Master YieldShift in 6 simple steps</p>
-      </div>
+        </div>
 
-      {/* Introduction */}
+        {/* Introduction */}
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 mb-8 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
             Welcome to YieldShift!
@@ -111,13 +111,13 @@ const HowToUse = () => {
           </div>
         </div> */}
 
-      {/* Step-by-Step Guide */}
+        {/* Step-by-Step Guide */}
       <div className="space-y-6 mb-12">
-        {steps.map((step) => (
-          <div
-            key={step.number}
+          {steps.map((step) => (
+            <div
+              key={step.number}
             className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
-          >
+            >
               <div className="flex gap-6">
                 {/* Step Number */}
                 <div className="flex-shrink-0">
@@ -149,7 +149,7 @@ const HowToUse = () => {
           ))}
         </div>
 
-      {/* Tips & Best Practices */}
+        {/* Tips & Best Practices */}
       <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">💡</span>
@@ -195,7 +195,7 @@ const HowToUse = () => {
           </div>
         </div>
 
-      {/* FAQ */}
+        {/* FAQ */}
       <div className="bg-white border border-gray-200 rounded-xl p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">❓</span>
@@ -241,13 +241,13 @@ const HowToUse = () => {
           </div>
         </div>
 
-      {/* Call to Action */}
+        {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white shadow-xl">
         <div className="text-5xl mb-4">🚀</div>
         <h3 className="text-3xl font-bold mb-3">Ready to Optimize Your Yields?</h3>
         <p className="text-xl mb-6 text-blue-100">
-          Connect your wallet now and discover better opportunities!
-        </p>
+            Connect your wallet now and discover better opportunities!
+          </p>
         <a
           href="#home"
           className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-lg"
