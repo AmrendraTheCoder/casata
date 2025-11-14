@@ -5,42 +5,42 @@ const HowToUse = () => {
     {
       number: 1,
       title: "Connect Your Wallet",
-      description: "Click the 'Connect Wallet' button and approve MetaMask connection.",
+      description: "Click the 'Connect Wallet' button and approve MetaMask connection (Testnet Mode).",
       details: [
         "Make sure MetaMask is installed in your browser",
-        "Select the wallet you want to analyze",
+        "Switch to Sepolia testnet (ETH, Base, or Arbitrum)",
         "Approve the connection request (read-only access)",
-        "Your wallet address will appear in the header"
+        "Get free test ETH from faucets if needed"
       ],
       icon: "🔗"
     },
     {
       number: 2,
-      title: "View Your Portfolio",
-      description: "YieldShift automatically detects all your DeFi positions across protocols.",
+      title: "Check Your Portfolio Health",
+      description: "View your Portfolio Overview page to see complete wallet stats and health score.",
       details: [
-        "We scan 200+ DeFi protocols on multiple chains",
-        "All lending, staking, and liquidity positions are detected",
-        "Current APYs and values are fetched in real-time",
-        "Your total portfolio value is calculated instantly"
+        "See your total balance across Sepolia testnets",
+        "View last 20 transactions with chain filtering",
+        "Check your Portfolio Health Score (0-100)",
+        "Generate and share portfolio health images"
       ],
       icon: "📊"
     },
     {
       number: 3,
-      title: "Analyze AI Recommendations",
-      description: "Our AI engine analyzes your positions and finds better opportunities.",
+      title: "Optimize Your Yields",
+      description: "Go to the Yield Optimizer to find better DeFi opportunities.",
       details: [
+        "We scan 200+ DeFi protocols on multiple chains",
         "AI scores each migration opportunity from 0-100",
-        "We calculate potential annual gains",
-        "Migration costs (bridge + gas fees) are estimated",
-        "Breakeven time shows when you start profiting"
+        "See potential annual gains and breakeven time",
+        "Migration costs (bridge + gas fees) are estimated"
       ],
       icon: "🤖"
     },
     {
       number: 4,
-      title: "Review Details",
+      title: "Review Migration Details",
       description: "Click 'View Full Details' to see comprehensive migration information.",
       details: [
         "Compare current vs target APY side-by-side",
@@ -61,23 +61,31 @@ const HowToUse = () => {
         "Safety checks at every step"
       ],
       icon: "✅"
+    },
+    {
+      number: 6,
+      title: "Ask Gennie for Help",
+      description: "Need assistance? Click Gennie (our AI chatbot) 3 times to get instant answers.",
+      details: [
+        "Gennie knows everything about YieldShift",
+        "Ask about features, DeFi terms, or troubleshooting",
+        "Get step-by-step guidance on any task",
+        "Available 24/7 in the bottom right corner"
+      ],
+      icon: "🤖"
     }
   ];
 
   return (
-    <div className="min-h-screen gradient-bg pt-12">
-      {/* Content */}
-      <div className="max-w-5xl mx-auto px-6 py-12">
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-3 flex items-center justify-center gap-3">
-            {/* <span className="text-5xl">📖</span> */}
-            How to Use YieldShift
-          </h1>
-          <p className="text-gray-600">Master YieldShift in 5 simple steps</p>
-        </div>
-        {/* Introduction */}
-        <div className="card-premium mb-12 text-center">
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Page Title */}
+      <div className="mb-12">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-2">How to Use YieldShift</h1>
+        <p className="text-lg text-gray-600">Master YieldShift in 6 simple steps</p>
+      </div>
+
+      {/* Introduction */}
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 mb-8 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
             Welcome to YieldShift!
           </h2>
@@ -103,13 +111,13 @@ const HowToUse = () => {
           </div>
         </div> */}
 
-        {/* Step-by-Step Guide */}
-        <div className="space-y-8 mb-12">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="card hover:scale-[1.02] transition-all duration-300"
-            >
+      {/* Step-by-Step Guide */}
+      <div className="space-y-6 mb-12">
+        {steps.map((step) => (
+          <div
+            key={step.number}
+            className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+          >
               <div className="flex gap-6">
                 {/* Step Number */}
                 <div className="flex-shrink-0">
@@ -141,17 +149,23 @@ const HowToUse = () => {
           ))}
         </div>
 
-        {/* Tips & Best Practices */}
-        <div className="card bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 mb-12">
+      {/* Tips & Best Practices */}
+      <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">💡</span>
             <h3 className="text-2xl font-bold text-gray-900">Pro Tips</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl p-5 border border-gray-200">
-              <h4 className="font-bold text-lg text-green-600 mb-2">⏰ Check Regularly</h4>
+              <h4 className="font-bold text-lg text-green-600 mb-2">💧 Use Testnet Mode</h4>
               <p className="text-gray-700 text-sm">
-                DeFi yields change constantly. Check YieldShift daily for new opportunities.
+                YieldShift runs on Sepolia testnets! Get free test ETH from faucets to practice without risking real funds.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-200">
+              <h4 className="font-bold text-lg text-green-600 mb-2">📸 Share Your Health</h4>
+              <p className="text-gray-700 text-sm">
+                Generate and download portfolio health images to track your progress or share with the community!
               </p>
             </div>
             <div className="bg-white rounded-xl p-5 border border-gray-200">
@@ -172,11 +186,17 @@ const HowToUse = () => {
                 Migrate during off-peak hours to save on gas fees. We show you the best timing!
               </p>
             </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-200">
+              <h4 className="font-bold text-lg text-green-600 mb-2">🤖 Ask Gennie</h4>
+              <p className="text-gray-700 text-sm">
+                Click Gennie 3 times to activate the chatbot. She can answer any questions about YieldShift instantly!
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* FAQ */}
-        <div className="card mb-12">
+      {/* FAQ */}
+      <div className="bg-white border border-gray-200 rounded-xl p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">❓</span>
             <h3 className="text-2xl font-bold text-gray-900">Frequently Asked Questions</h3>
@@ -189,36 +209,52 @@ const HowToUse = () => {
               </p>
             </div>
             <div className="border-b border-gray-200 pb-4">
+              <h4 className="font-bold text-lg text-gray-900 mb-2">Why is YieldShift on testnets?</h4>
+              <p className="text-gray-700">
+                We run on Sepolia testnets (Ethereum, Base, Arbitrum) so you can practice and test without using real funds. Get free test ETH from faucets linked in the Portfolio page!
+              </p>
+            </div>
+            <div className="border-b border-gray-200 pb-4">
+              <h4 className="font-bold text-lg text-gray-900 mb-2">How do I get test ETH?</h4>
+              <p className="text-gray-700">
+                Visit the faucet links in the Portfolio Overview page. You can get free test ETH for Sepolia, Base Sepolia, and Arbitrum Sepolia. No real money needed!
+              </p>
+            </div>
+            <div className="border-b border-gray-200 pb-4">
+              <h4 className="font-bold text-lg text-gray-900 mb-2">What is Portfolio Health Score?</h4>
+              <p className="text-gray-700">
+                It's a 0-100 score based on your balance, transaction activity, wallet age, and diversity. Higher scores indicate a more active and healthy portfolio.
+              </p>
+            </div>
+            <div className="border-b border-gray-200 pb-4">
               <h4 className="font-bold text-lg text-gray-900 mb-2">How accurate are the APY predictions?</h4>
               <p className="text-gray-700">
                 Our AI model is trained on 6+ months of historical data with 87% accuracy. However, DeFi yields can change rapidly, so always verify before migrating.
               </p>
             </div>
-            <div className="border-b border-gray-200 pb-4">
+            <div className="pb-4">
               <h4 className="font-bold text-lg text-gray-900 mb-2">Do you charge any fees?</h4>
               <p className="text-gray-700">
-                YieldShift is completely free to use! You only pay the standard blockchain fees (gas + bridge fees).
-              </p>
-            </div>
-            <div className="pb-4">
-              <h4 className="font-bold text-lg text-gray-900 mb-2">What chains do you support?</h4>
-              <p className="text-gray-700">
-                We currently support Ethereum, Arbitrum, Optimism, Polygon, and Base. More chains coming soon!
+                YieldShift is completely free to use! You only pay the standard blockchain fees (gas + bridge fees) when executing migrations.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="card-premium text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">Ready to Optimize Your Yields?</h3>
-          <p className="text-gray-700 mb-6 text-lg">
-            Connect your wallet now and discover better opportunities!
-          </p>
-          <a href="/" className="btn-primary px-8 py-4 text-lg inline-block">
-            🚀 Get Started Now
-          </a>
-        </div>
+      {/* Call to Action */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white shadow-xl">
+        <div className="text-5xl mb-4">🚀</div>
+        <h3 className="text-3xl font-bold mb-3">Ready to Optimize Your Yields?</h3>
+        <p className="text-xl mb-6 text-blue-100">
+          Connect your wallet now and discover better opportunities!
+        </p>
+        <a
+          href="#home"
+          className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-lg"
+        >
+          <span>Get Started Now</span>
+          <span className="text-2xl">→</span>
+        </a>
       </div>
     </div>
   );

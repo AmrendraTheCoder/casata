@@ -127,6 +127,62 @@ const Vocabulary = () => {
       example: "Deposit $2000 worth of ETH to borrow $1000 USDC on Aave.",
       category: "Intermediate",
       icon: "💎"
+    },
+    {
+      term: "Testnet",
+      definition: "A testing environment for blockchain networks where you can experiment without using real money. Uses test tokens that have no real value.",
+      example: "YieldShift runs on Sepolia testnet, so you can test all features with free test ETH from faucets.",
+      category: "Basic",
+      icon: "🧪"
+    },
+    {
+      term: "Sepolia",
+      definition: "The name of Ethereum's current testnet. Also used by Base and Arbitrum for their testnets (Base Sepolia, Arbitrum Sepolia).",
+      example: "Switch your MetaMask to Sepolia testnet to use YieldShift.",
+      category: "Basic",
+      icon: "⟠"
+    },
+    {
+      term: "Faucet",
+      definition: "A service that gives you free test tokens for testnets. Essential for testing blockchain applications without spending real money.",
+      example: "Visit sepoliafaucet.com to get free test ETH for Ethereum Sepolia.",
+      category: "Basic",
+      icon: "💧"
+    },
+    {
+      term: "Portfolio Health Score",
+      definition: "YieldShift's 0-100 rating of your wallet based on balance, transaction activity, wallet age, and asset diversity.",
+      example: "A score of 85 means you have a healthy, active wallet with good balance and regular transactions.",
+      category: "YieldShift",
+      icon: "❤️"
+    },
+    {
+      term: "Portfolio Image Generator",
+      definition: "YieldShift feature that creates a shareable image of your portfolio health statistics.",
+      example: "Generate a portfolio health card showing your score, balance, and transaction stats to share on social media.",
+      category: "YieldShift",
+      icon: "📸"
+    },
+    {
+      term: "Gennie",
+      definition: "YieldShift's AI chatbot assistant that helps answer questions about the app and DeFi concepts. Click 3 times to activate.",
+      example: "Click Gennie three times to ask 'How do I get test ETH?' or 'What does APY mean?'",
+      category: "YieldShift",
+      icon: "🤖"
+    },
+    {
+      term: "Multi-Chain",
+      definition: "Operating across multiple blockchain networks simultaneously. Allows you to manage assets on different chains in one place.",
+      example: "YieldShift shows your balances on Ethereum Sepolia, Base Sepolia, and Arbitrum Sepolia all in one dashboard.",
+      category: "Intermediate",
+      icon: "🔗"
+    },
+    {
+      term: "Transaction History",
+      definition: "A record of all blockchain transactions associated with your wallet, including sent, received, and smart contract interactions.",
+      example: "YieldShift shows your last 20 transactions across all supported chains with filtering options.",
+      category: "Basic",
+      icon: "📜"
     }
   ];
 
@@ -138,19 +194,15 @@ const Vocabulary = () => {
     : terms.filter(t => t.category === selectedCategory);
 
   return (
-    <div className="min-h-screen gradient-bg pt-12">
-      {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-3 flex items-center justify-center gap-3">
-            {/* <span className="text-5xl">📚</span> */}
-            DeFi Vocabulary
-          </h1>
-          <p className="text-gray-600">Learn the language of decentralized finance</p>
-        </div>
-        {/* Introduction */}
-        <div className="card-premium mb-12 text-center">
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      {/* Page Title */}
+      <div className="mb-12">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-2">DeFi Vocabulary</h1>
+        <p className="text-lg text-gray-600">Learn the language of decentralized finance</p>
+      </div>
+
+      {/* Introduction */}
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 mb-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Master the Language of DeFi
           </h2>
@@ -160,8 +212,8 @@ const Vocabulary = () => {
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+      {/* Category Filter */}
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
           {categories.map(category => (
             <button
               key={category}
@@ -177,13 +229,13 @@ const Vocabulary = () => {
           ))}
         </div>
 
-        {/* Terms Grid */}
-        <div className="grid gap-6">
-          {filteredTerms.map((item, index) => (
-            <div 
-              key={index}
-              className="card hover:scale-[1.01] transition-all duration-300"
-            >
+      {/* Terms Grid */}
+      <div className="grid gap-6">
+        {filteredTerms.map((item, index) => (
+          <div 
+            key={index}
+            className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+          >
               <div className="flex gap-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
@@ -225,17 +277,26 @@ const Vocabulary = () => {
           ))}
         </div>
 
-        {/* Help Section */}
-        <div className="card bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-300 mt-12 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Still confused? 🤔</h3>
-          <p className="text-gray-700 mb-6">
-            Join our community Discord where experienced DeFi users can help answer your questions!
+      {/* Help Section */}
+      <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-8 mt-8 text-center">
+        <div className="text-5xl mb-4">🤔</div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">Still confused?</h3>
+        <p className="text-gray-700 mb-2 text-lg font-semibold">
+          🤖 Try Gennie First!
+        </p>
+        <p className="text-gray-600 mb-6">
+          Click Gennie (bottom right corner) 3 times to activate our AI chatbot. 
+          She can instantly explain any term or answer questions about YieldShift!
+        </p>
+        <div className="border-t border-purple-300 pt-6 mt-6">
+          <p className="text-gray-700 mb-6 text-lg">
+            Want to connect with the community?
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button className="btn-primary">
+            <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all hover:scale-105 shadow-lg">
               💬 Join Discord
             </button>
-            <button className="btn-secondary">
+            <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border border-gray-300 hover:bg-gray-50 transition-all hover:scale-105">
               📧 Email Support
             </button>
           </div>

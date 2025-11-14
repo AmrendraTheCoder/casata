@@ -1,25 +1,28 @@
-// Chain configurations
+// Chain configurations - TESTNET MODE
 export const CHAINS = {
-  ETHEREUM: {
-    id: 1,
-    name: "Ethereum",
+  SEPOLIA: {
+    id: 11155111,
+    name: "Sepolia",
     shortName: "ETH",
-    explorer: "https://etherscan.io",
+    explorer: "https://sepolia.etherscan.io",
     color: "#627EEA",
+    faucet: "https://sepoliafaucet.com",
   },
-  BASE: {
-    id: 8453,
-    name: "Base",
+  BASE_SEPOLIA: {
+    id: 84532,
+    name: "Base Sepolia",
     shortName: "BASE",
-    explorer: "https://basescan.org",
+    explorer: "https://sepolia.basescan.org",
     color: "#0052FF",
+    faucet: "https://www.coinbase.com/faucets/base-ethereum-goerli-faucet",
   },
-  ARBITRUM: {
-    id: 42161,
-    name: "Arbitrum",
+  ARBITRUM_SEPOLIA: {
+    id: 421614,
+    name: "Arbitrum Sepolia",
     shortName: "ARB",
-    explorer: "https://arbiscan.io",
+    explorer: "https://sepolia.arbiscan.io",
     color: "#28A0F0",
+    faucet: "https://faucet.arbitrum.io",
   },
 };
 
