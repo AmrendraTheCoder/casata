@@ -404,34 +404,37 @@ const PortfolioOverview = () => {
         </p>
         <div className="grid md:grid-cols-3 gap-4">
           <a
-            href="https://sepoliafaucet.com"
+            href="https://www.alchemy.com/faucets/ethereum-sepolia"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105"
+            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
           >
             <div className="text-3xl">⟠</div>
             <div className="font-bold text-gray-900">Sepolia Faucet</div>
             <div className="text-sm text-gray-600 text-center">Get ETH for Ethereum Sepolia</div>
+            <div className="text-xs text-blue-600 mt-2">→ Alchemy Faucet</div>
           </a>
           <a
-            href="https://www.coinbase.com/faucets/base-ethereum-goerli-faucet"
+            href="https://www.alchemy.com/faucets/base-sepolia"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105"
+            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
           >
             <div className="text-3xl">🔵</div>
             <div className="font-bold text-gray-900">Base Sepolia</div>
             <div className="text-sm text-gray-600 text-center">Get ETH for Base testnet</div>
+            <div className="text-xs text-blue-600 mt-2">→ Alchemy Faucet</div>
           </a>
           <a
-            href="https://faucet.arbitrum.io"
+            href="https://www.alchemy.com/faucets/arbitrum-sepolia"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105"
+            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
           >
             <div className="text-3xl">🔷</div>
             <div className="font-bold text-gray-900">Arbitrum Sepolia</div>
             <div className="text-sm text-gray-600 text-center">Get ETH for Arbitrum testnet</div>
+            <div className="text-xs text-blue-600 mt-2">→ Alchemy Faucet</div>
           </a>
         </div>
         <div className="mt-6 text-center text-sm text-gray-600">

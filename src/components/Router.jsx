@@ -163,143 +163,155 @@ const Router = () => {
       case 'home':
       default:
         return (
-          <div className="min-h-screen gradient-bg">
+          <div className="min-h-screen bg-white">
             <Navigation />
             <main className="pt-12">
-              <div className="max-w-6xl mx-auto px-4 py-12">
-                {/* Hero Section with Instant Value */}
-                <div className="text-center mb-16 slide-up">
-                  {/* Trust Badge */}
-                  <div className="inline-flex items-center gap-2 bg-green-100 border border-green-300 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    Read-only • 100% Safe • No Signatures Required
-                  </div>
+              {/* Hero Section - Apple Style */}
+              <section className="max-w-5xl mx-auto px-6 py-20 text-center">
+                {/* Trust Badge */}
+                <div className="inline-flex items-center gap-2 bg-green-50 px-4 py-2 rounded-full mb-8">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span className="text-sm font-medium text-green-700">Read-only • 100% Safe</span>
+                </div>
 
-                  <h2 className="text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-                    You're Likely Losing
-                    <span className="block bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mt-2">
-                      $2,000+ Per Year
-                    </span>
+                {/* Hero Headline - Apple Style */}
+                <h1 className="text-7xl md:text-8xl font-semibold tracking-tight text-gray-900 mb-6 leading-none">
+                  Stop losing
+                  <br />
+                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    on yields.
+                  </span>
+                </h1>
+
+                <p className="text-2xl md:text-3xl text-gray-600 font-light mb-12 max-w-3xl mx-auto leading-snug">
+                  AI-powered DeFi optimizer. Find better yields across 200+ protocols in 3 seconds.
+                </p>
+
+                {/* CTA */}
+                <div className="flex flex-col items-center gap-4 mb-8">
+                  {!isConnected ? (
+                    <>
+                      <WalletConnect />
+                      <p className="text-sm text-gray-500">No wallet? Explore demo mode</p>
+                    </>
+                  ) : (
+                    <button
+                      onClick={goToPortfolio}
+                      className="px-8 py-4 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-all text-lg flex items-center gap-2"
+                    >
+                      View My Portfolio
+                      <span>→</span>
+                    </button>
+                  )}
+                </div>
+
+                {/* Quick Stats - Minimal */}
+                <div className="flex justify-center gap-12 mt-16 text-sm text-gray-500">
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900">30-40%</div>
+                    <div>More Yield</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900">200+</div>
+                    <div>Protocols</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-semibold text-gray-900">3 sec</div>
+                    <div>Analysis</div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Visual Separator */}
+              <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent max-w-6xl mx-auto mb-20"></div>
+
+              {/* Features Section - Apple Style */}
+              <section className="max-w-6xl mx-auto px-6 mb-32">
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <span className="text-3xl">🔍</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Instant Detection</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Scans your wallet in under 3 seconds and spots underperforming positions automatically
+                    </p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <span className="text-3xl">🤖</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">AI-Powered</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Compares against 200+ protocols across Ethereum, Base, and Arbitrum testnets
+                    </p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <span className="text-3xl">⚡</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Scored</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Every opportunity gets a 0-100 score with transparent cost breakdown
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* How It Works - Apple Style */}
+              <section className="bg-gray-50 py-20">
+                <div className="max-w-4xl mx-auto px-6">
+                  <h2 className="text-5xl font-semibold text-center text-gray-900 mb-16">
+                    How it works
                   </h2>
-
-                  <p className="text-2xl text-gray-700 mb-3 font-medium">
-                    in missed DeFi yields across chains
-                  </p>
-                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    YieldShift finds better opportunities in 3 seconds. No monitoring, no stress, just optimized returns.
-                  </p>
-
-                  {/* Value Prop Stats */}
-                  <div className="flex justify-center gap-8 mt-8 mb-10">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">30-40%</div>
-                      <div className="text-sm text-gray-600">More Yield</div>
-                    </div>
-                    <div className="w-px bg-gray-300"></div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">200+</div>
-                      <div className="text-sm text-gray-600">Protocols</div>
-                    </div>
-                    <div className="w-px bg-gray-300"></div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">3 sec</div>
-                      <div className="text-sm text-gray-600">Analysis</div>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    {!isConnected ? (
-                      <>
-                        <WalletConnect />
-                        <p className="text-sm text-gray-500">
-                          Works in demo mode • No wallet required to explore
-                        </p>
-                      </>
-                    ) : (
-                      <button
-                        onClick={goToPortfolio}
-                        className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2 text-lg"
-                      >
-                        View My Portfolio
-                        <span className="text-xl">→</span>
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Features with Progressive Disclosure */}
-                <div className="grid md:grid-cols-3 gap-6 mb-16 fade-in">
-                  <div className="card-premium group hover:scale-105 transition-transform">
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">🔍</div>
-                    <h3 className="font-bold text-xl mb-3 text-gray-900">Instant Detection</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Scans your wallet in <span className="font-semibold text-blue-600">under 3 seconds</span> and spots underperforming positions automatically
-                    </p>
-                    <div className="mt-4 text-sm text-blue-600 font-semibold">→ No manual work required</div>
-                  </div>
-                  <div className="card-premium group hover:scale-105 transition-transform">
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
-                    <h3 className="font-bold text-xl mb-3 text-gray-900">AI-Powered Matching</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Compares your positions against <span className="font-semibold text-blue-600">200+ protocols</span> across Ethereum, Base, and Arbitrum
-                    </p>
-                    <div className="mt-4 text-sm text-blue-600 font-semibold">→ Always finds the best yield</div>
-                  </div>
-                  <div className="card-premium group hover:scale-105 transition-transform">
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">⚡</div>
-                    <h3 className="font-bold text-xl mb-3 text-gray-900">Scored Recommendations</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Every opportunity gets a <span className="font-semibold text-blue-600">0-100 score</span> with transparent cost breakdown and timing
-                    </p>
-                    <div className="mt-4 text-sm text-blue-600 font-semibold">→ Make confident decisions</div>
-                  </div>
-                </div>
-
-                {/* How It Works - Clear & Simple */}
-                <div className="max-w-3xl mx-auto mb-8">
-                  <h3 className="font-bold text-3xl mb-10 text-center text-gray-900">
-                    Get Optimized in <span className="text-blue-600">3 Simple Steps</span>
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex gap-6 items-start bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md">
-                        1
+                  
+                  <div className="space-y-16">
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                      <div className="flex-shrink-0">
+                        <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-semibold">
+                          1
+                        </div>
                       </div>
                       <div>
-                        <h4 className="font-bold text-xl text-gray-900 mb-2">Connect Wallet</h4>
-                        <p className="text-gray-700 leading-relaxed">
-                          One click. We scan your positions across Ethereum, Base, and Arbitrum.
-                          <span className="text-green-600 font-semibold"> Takes 3 seconds.</span>
+                        <h3 className="text-2xl font-semibold text-gray-900 mb-3">Connect & Scan</h3>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                          One click to connect your wallet. We scan your positions across chains in 3 seconds.
                         </p>
                       </div>
                     </div>
-                    <div className="flex gap-6 items-start bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md">
-                        2
+
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                      <div className="flex-shrink-0">
+                        <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-semibold">
+                          2
+                        </div>
                       </div>
                       <div>
-                        <h4 className="font-bold text-xl text-gray-900 mb-2">Review Opportunities</h4>
-                        <p className="text-gray-700 leading-relaxed">
-                          See exactly how much you can earn with migration scores, cost breakdowns, and timing advice.
-                          <span className="text-blue-600 font-semibold"> All transparent.</span>
+                        <h3 className="text-2xl font-semibold text-gray-900 mb-3">Review Opportunities</h3>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                          See migration scores, cost breakdowns, and potential earnings. Everything transparent.
                         </p>
                       </div>
                     </div>
-                    <div className="flex gap-6 items-start bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md">
-                        3
+
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                      <div className="flex-shrink-0">
+                        <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl font-semibold">
+                          3
+                        </div>
                       </div>
                       <div>
-                        <h4 className="font-bold text-xl text-gray-900 mb-2">Follow Simple Steps</h4>
-                        <p className="text-gray-700 leading-relaxed">
-                          Get clear migration instructions. Execute when you're ready.
-                          <span className="text-green-600 font-semibold"> You're always in control.</span>
+                        <h3 className="text-2xl font-semibold text-gray-900 mb-3">Optimize</h3>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                          Follow clear instructions to migrate. You're always in control.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
+              </section>
 
                 {/* Final CTA with Social Proof */}
                 {/* <div className="card-premium max-w-2xl mx-auto text-center">
@@ -333,30 +345,68 @@ const Router = () => {
               </div>
             </main>
 
-            {/* Footer */}
-            <footer className="bg-white border-t border-gray-200">
-              <div className="max-w-7xl mx-auto px-4 py-8">
-                <div className="text-center mb-6">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">
-                    Built for DeFi farmers who refuse to leave money on the table
-                  </p>
-                  <div className="flex justify-center gap-6 text-xs text-gray-600 mb-4">
-                    <span>⟠ Sepolia Testnet</span>
-                    <span>🔵 Base Sepolia</span>
-                    <span>🔷 Arbitrum Sepolia</span>
+            {/* Final CTA - Apple Style */}
+            <section className="bg-white py-20">
+              <div className="max-w-4xl mx-auto px-6 text-center">
+                <h2 className="text-5xl font-semibold text-gray-900 mb-6">
+                  Ready to optimize?
+                </h2>
+                <p className="text-xl text-gray-600 mb-12">
+                  Connect your wallet and find better yields in seconds.
+                </p>
+                {!isConnected ? (
+                  <div className="flex flex-col items-center gap-4">
+                    <WalletConnect />
+                    <p className="text-sm text-gray-500">Free • Read-only • No risk</p>
                   </div>
-                  <div className="flex justify-center gap-6 text-sm">
-                    <a href="#how-to-use" className="text-blue-600 hover:text-blue-700 transition-colors">
-                      📖 How to Use
-                    </a>
-                    <a href="#vocabulary" className="text-blue-600 hover:text-blue-700 transition-colors">
-                      📚 Vocabulary
-                    </a>
+                ) : (
+                  <button
+                    onClick={goToPortfolio}
+                    className="px-8 py-4 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-all text-lg flex items-center gap-2 mx-auto"
+                  >
+                    View My Portfolio
+                    <span>→</span>
+                  </button>
+                )}
+              </div>
+            </section>
+
+            {/* Footer - Apple Style */}
+            <footer className="bg-gray-50 border-t border-gray-200">
+              <div className="max-w-7xl mx-auto px-6 py-12">
+                <div className="grid md:grid-cols-3 gap-8 mb-8">
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-4">YieldShift</h3>
+                    <p className="text-sm text-gray-600">
+                      AI-powered DeFi optimizer for smarter yields
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-4">Learn</h3>
+                    <div className="space-y-2">
+                      <a href="#how-to-use" className="block text-sm text-gray-600 hover:text-gray-900">
+                        How to Use
+                      </a>
+                      <a href="#vocabulary" className="block text-sm text-gray-600 hover:text-gray-900">
+                        Vocabulary
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-4">Testnets</h3>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      <div>⟠ Sepolia</div>
+                      <div>🔵 Base Sepolia</div>
+                      <div>🔷 Arbitrum Sepolia</div>
+                    </div>
                   </div>
                 </div>
-                <div className="text-center">
-                  <p className="text-xs text-gray-500">
+                <div className="pt-8 border-t border-gray-200">
+                  <p className="text-center text-sm text-gray-500">
                     Data from DefiLlama • Always do your own research
+                  </p>
+                  <p className="text-center text-xs text-gray-400 mt-2">
+                    Built for DeFi optimizers • © 2025 YieldShift
                   </p>
                 </div>
               </div>
