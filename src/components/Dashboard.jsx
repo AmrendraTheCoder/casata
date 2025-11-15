@@ -113,32 +113,21 @@ const Dashboard = () => {
 
   if (positionsLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
-        <div className="bg-white rounded-2xl shadow-xl p-12 text-center max-w-md">
-          <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 border-4 border-blue-200 rounded-full"></div>
-            <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+      <div className="min-h-screen bg-mystical-night flex items-center justify-center p-6">
+        <div className="card-premium p-12 text-center max-w-md">
+          <div className="relative w-24 h-24 mx-auto mb-6">
+            <div className="absolute inset-0 border-4 border-lamp-purple-500/30 rounded-full"></div>
+            <div className="absolute inset-0 border-4 border-lamp-gold-400 rounded-full border-t-transparent animate-spin"></div>
+            <div className="absolute inset-0 flex items-center justify-center text-4xl animate-float">
+              🪔
+            </div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Loading Dashboard
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-4">
+            Summoning the Genie
           </h2>
-          <p className="text-gray-600 mb-2">
-            Fetching your positions from testnets...
+          <p className="text-lamp-purple-200 mb-2">
+            The Genie is peering into your treasure vault... ✨
           </p>
-          {/* <div className="mt-6 space-y-2 text-sm text-gray-500">
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span>Scanning Sepolia</span>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-              <span>Scanning Base Sepolia</span>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-              <span>Scanning Arbitrum Sepolia</span>
-            </div>
-          </div> */}
         </div>
       </div>
     );
@@ -147,10 +136,10 @@ const Dashboard = () => {
   if (positionsError) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-red-50 border border-red-300 rounded-lg p-4">
-          <p className="text-red-900 font-semibold mb-2">Error loading positions</p>
-          <p className="text-red-700 text-sm">{positionsError.message}</p>
-          <p className="text-red-600 text-xs mt-2">Falling back to demo data...</p>
+        <div className="bg-lamp-rose-500/20 border border-lamp-rose-400/50 rounded-lg p-4 backdrop-blur-sm">
+          <p className="text-lamp-rose-300 font-semibold mb-2">🧞 The Genie encountered a mystical disturbance</p>
+          <p className="text-lamp-rose-200 text-sm">{positionsError.message}</p>
+          <p className="text-lamp-rose-300 text-xs mt-2">✨ Summoning enchanted demo treasures instead...</p>
         </div>
       </div>
     );
@@ -160,19 +149,19 @@ const Dashboard = () => {
     return (
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="text-center py-12">
-          <div className="text-6xl mb-4">💼</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">No positions found</h2>
-          <p className="text-gray-600 mb-6">
-            We couldn't detect any DeFi positions in your wallet.
+          <div className="text-6xl mb-4 animate-float">🪔</div>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-2">Your Vault is Empty</h2>
+          <p className="text-lamp-purple-200 mb-6">
+            The Genie couldn't find any treasures in your lamp.
           </p>
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-md mx-auto">
-            <p className="text-sm text-gray-900 mb-2">
-              <strong>Tip:</strong> Make sure you have:
+          <div className="card max-w-md mx-auto">
+            <p className="text-sm text-lamp-gold-400 mb-2">
+              <strong>🧞 Genie's Wisdom:</strong> Make sure you have:
             </p>
-            <ul className="text-sm text-gray-700 text-left list-disc list-inside space-y-1">
-              <li>Deposited assets in supported protocols (Aave, Compound)</li>
-              <li>Connected the correct wallet</li>
-              <li>Assets on supported chains (Ethereum, Base, Arbitrum)</li>
+            <ul className="text-sm text-lamp-purple-200 text-left list-disc list-inside space-y-1">
+              <li>Deposited riches in enchanted protocols (Aave, Compound)</li>
+              <li>Summoned the correct lamp (wallet)</li>
+              <li>Treasures in mystical realms (Ethereum, Base, Arbitrum)</li>
             </ul>
           </div>
         </div>
@@ -183,15 +172,15 @@ const Dashboard = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-3">
       {/* Info Bar - Sticky at top */}
-      <div className="mb-6 flex items-center justify-between bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg px-4 py-2.5 shadow-sm">
-        <div className="flex items-center gap-4 text-xs text-gray-600">
+      <div className="mb-6 flex items-center justify-between bg-lamp-night-900/80 backdrop-blur-sm border border-lamp-purple-500/30 rounded-lg px-4 py-2.5 shadow-lg">
+        <div className="flex items-center gap-4 text-xs text-lamp-purple-300">
           <div className="flex items-center gap-1.5">
-            <span className="text-blue-600">⚡</span>
-            <span>Real-time data from testnets</span>
+            <span className="text-lamp-gold-400">✨</span>
+            <span>Real-time mystical data from enchanted realms</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-green-600">●</span>
-            <span>Connected to {address?.slice(0, 6)}...{address?.slice(-4)}</span>
+            <span className="text-lamp-teal-400">●</span>
+            <span>Lamp connected: {address?.slice(0, 6)}...{address?.slice(-4)}</span>
           </div>
         </div>
       </div>
@@ -204,9 +193,9 @@ const Dashboard = () => {
       />
 
       {/* Chart */}
-      <div className="my-6">
+      {/* <div className="my-6">
         <PortfolioChart />
-      </div>
+      </div> */}
 
       {/* Alert Banner */}
       <AlertBanner
@@ -217,20 +206,24 @@ const Dashboard = () => {
 
       {/* Loading state for opportunities */}
       {opportunitiesLoading && (
-        <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6 shadow-sm">
+        <div className="card p-4 mb-6">
           <div className="flex items-center gap-3">
-            <svg className="animate-spin h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <div className="text-3xl animate-float">🧞</div>
+            <svg className="animate-spin h-6 w-6 text-lamp-gold-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <p className="text-blue-600 font-semibold">Analyzing migration opportunities across chains...</p>
+            <p className="text-lamp-gold-400 font-semibold">The Genie is analyzing wish opportunities across mystical realms... ✨</p>
           </div>
         </div>
       )}
 
       {/* Positions Grid */}
       <div>
-        <h2 className="text-base font-semibold text-gray-900 mb-3">Your Positions</h2>
+        <h2 className="text-xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-3 flex items-center gap-2">
+          <span>💎</span>
+          Your Treasure Positions
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {enrichedPositions.map((position) => (
             <PositionCard
@@ -247,10 +240,10 @@ const Dashboard = () => {
       {savedOpportunities.length > 0 && (
         <div className="mt-8 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-base font-semibold text-gray-900 flex items-center gap-2">
-              <span>💾</span>
-              Saved Opportunities
-              <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-bold rounded">
+            <h2 className="text-xl font-bold bg-gradient-to-r from-lamp-magenta-400 to-lamp-purple-400 bg-clip-text text-transparent flex items-center gap-2">
+              <span>⭐</span>
+              Saved Wishes
+              <span className="px-2 py-0.5 bg-lamp-magenta-500/30 text-lamp-magenta-300 text-xs font-bold rounded border border-lamp-magenta-400/50">
                 {savedOpportunities.length}
               </span>
             </h2>
@@ -260,36 +253,36 @@ const Dashboard = () => {
             {savedOpportunities.map((opp, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 rounded-lg p-4 hover:shadow-lg transition-all"
+                className="card-premium hover:scale-105 transition-all"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="text-xs text-gray-600 mb-1">MIGRATE TO</p>
-                    <p className="font-semibold text-sm text-gray-900">{opp.targetProtocol}</p>
-                    <p className="text-xs text-gray-600">{opp.targetChain}</p>
+                    <p className="text-xs text-lamp-purple-400 mb-1">✨ WISH TO MIGRATE</p>
+                    <p className="font-semibold text-sm text-lamp-gold-400">{opp.targetProtocol}</p>
+                    <p className="text-xs text-lamp-purple-300">{opp.targetChain}</p>
                   </div>
                   <button
                     onClick={() => {
                       setSavedOpportunities(prev => prev.filter((_, i) => i !== index));
                     }}
-                    className="text-gray-400 hover:text-red-600 transition-colors"
-                    title="Remove"
+                    className="text-lamp-purple-400 hover:text-lamp-rose-400 transition-colors text-xl"
+                    title="Remove wish"
                   >
                     ×
                   </button>
                 </div>
 
-                <div className="bg-white border border-blue-200 rounded-lg p-3 mb-3">
+                <div className="bg-lamp-night-800/50 border border-lamp-purple-500/30 rounded-lg p-3 mb-3">
                   <div className="flex justify-between items-center">
                     <div>
-                      <p className="text-[10px] text-gray-600">TARGET APY</p>
-                      <p className="font-bold text-xl text-blue-600">
+                      <p className="text-[10px] text-lamp-purple-400">TARGET BLESSING</p>
+                      <p className="font-bold text-xl text-lamp-magenta-400">
                         {opp.targetApy.toFixed(1)}%
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-[10px] text-gray-600">ANNUAL GAIN</p>
-                      <p className="font-bold text-sm text-green-600">
+                      <p className="text-[10px] text-lamp-purple-400">ANNUAL PROSPERITY</p>
+                      <p className="font-bold text-sm text-lamp-teal-400">
                         +${opp.annualGain.toFixed(2)}
                       </p>
                     </div>
@@ -298,9 +291,9 @@ const Dashboard = () => {
 
                 <button
                   onClick={() => setSelectedOpportunity(opp)}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-xs"
+                  className="w-full bg-gradient-to-r from-lamp-magenta-600 to-lamp-purple-600 hover:from-lamp-magenta-500 hover:to-lamp-purple-500 text-white font-semibold py-2 px-4 rounded-lg transition-all text-xs shadow-lg"
                 >
-                  View Details
+                  View Wish Details
                 </button>
               </div>
             ))}
@@ -320,13 +313,13 @@ const Dashboard = () => {
       {/* Save Notification */}
       {showSaveNotification && (
         <div className="fixed top-20 right-6 z-50 animate-slideInRight">
-          <div className="bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3">
-            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-              <span className="text-xl">✓</span>
+          <div className="bg-gradient-to-r from-lamp-teal-600 to-lamp-teal-500 text-white px-6 py-4 rounded-lg shadow-2xl border-2 border-lamp-teal-400 flex items-center gap-3">
+            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
+              <span className="text-xl">✨</span>
             </div>
             <div>
-              <p className="font-semibold">Opportunity Saved!</p>
-              <p className="text-sm text-green-100">You can view it in the "Saved Opportunities" section</p>
+              <p className="font-bold">Wish Saved!</p>
+              <p className="text-sm text-teal-100">The Genie has preserved your wish in the "Saved Wishes" vault</p>
             </div>
           </div>
         </div>
@@ -334,16 +327,16 @@ const Dashboard = () => {
 
       {/* Smart Tip Section - Compact */}
       <div className="mt-8 mb-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+        <div className="card p-4">
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded flex items-center justify-center">
-              <span className="text-lg">💡</span>
+            <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-lamp-gold-500 to-lamp-gold-600 rounded-full flex items-center justify-center shadow-lg animate-float">
+              <span className="text-lg">🧞</span>
             </div>
             <div className="flex-1">
-              <h3 className="text-xs font-semibold text-gray-900 mb-1">Pro Tip</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Always verify migration costs during execution as gas fees fluctuate.
-                APY data updates every 30 seconds for real-time accuracy.
+              <h3 className="text-sm font-bold text-lamp-gold-400 mb-1">Genie's Wisdom</h3>
+              <p className="text-xs text-lamp-purple-200 leading-relaxed">
+                Always verify migration costs during wish fulfillment as mystical gas fees fluctuate.
+                Blessing data updates every 30 seconds for real-time accuracy. ✨
               </p>
             </div>
           </div>

@@ -74,7 +74,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
       });
 
       const link = document.createElement('a');
-      link.download = `yieldshift-nft-${nftAttributes.uniqueId}-${Date.now()}.png`;
+      link.download = `lampfi-prosperity-nft-${nftAttributes.uniqueId}-${Date.now()}.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
     } catch (error) {
@@ -164,45 +164,45 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-6">
+    <div className="card p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-xl font-bold text-gray-900">Portfolio NFT Generator</h3>
-          <p className="text-sm text-gray-600">Generate unique NFT-style portfolio art</p>
+          <h3 className="text-xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">🪔 Prosperity NFT Generator</h3>
+          <p className="text-sm text-lamp-purple-200">Generate unique mystical prosperity art</p>
         </div>
         <button
           onClick={downloadImage}
           disabled={isGenerating}
-          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 py-3 bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white font-bold rounded-xl hover:from-lamp-purple-500 hover:to-lamp-magenta-500 transition-all hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isGenerating ? '⏳ Generating...' : '🎨 Generate NFT'}
+          {isGenerating ? '⏳ Summoning...' : '✨ Generate Prosperity NFT'}
         </button>
       </div>
 
       {/* NFT Attributes Preview */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-        <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-3">
-          <div className="text-xs text-gray-600 mb-1">Rarity</div>
-          <div className="text-lg font-bold text-purple-700">{nftAttributes.rarity}</div>
+        <div className="bg-gradient-to-br from-lamp-purple-900/40 to-lamp-magenta-900/40 border border-lamp-purple-500/30 rounded-lg p-3">
+          <div className="text-xs text-lamp-purple-400 mb-1">Rarity</div>
+          <div className="text-lg font-bold text-lamp-purple-200">{nftAttributes.rarity}</div>
         </div>
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-3">
-          <div className="text-xs text-gray-600 mb-1">Edition</div>
-          <div className="text-lg font-bold text-blue-700">{nftAttributes.edition}</div>
+        <div className="bg-gradient-to-br from-lamp-magenta-900/40 to-lamp-purple-900/40 border border-lamp-magenta-500/30 rounded-lg p-3">
+          <div className="text-xs text-lamp-purple-400 mb-1">Edition</div>
+          <div className="text-lg font-bold text-lamp-magenta-300">{nftAttributes.edition}</div>
         </div>
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-3">
-          <div className="text-xs text-gray-600 mb-1">Pattern</div>
-          <div className="text-lg font-bold text-green-700 capitalize">{nftAttributes.pattern}</div>
+        <div className="bg-gradient-to-br from-lamp-teal-900/40 to-lamp-teal-800/40 border border-lamp-teal-500/30 rounded-lg p-3">
+          <div className="text-xs text-lamp-purple-400 mb-1">Pattern</div>
+          <div className="text-lg font-bold text-lamp-teal-300 capitalize">{nftAttributes.pattern}</div>
         </div>
-        <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-200 rounded-lg p-3">
-          <div className="text-xs text-gray-600 mb-1">ID</div>
-          <div className="text-lg font-bold text-amber-700 font-mono">{nftAttributes.uniqueId}</div>
+        <div className="bg-gradient-to-br from-lamp-gold-900/40 to-lamp-gold-800/40 border border-lamp-gold-500/30 rounded-lg p-3">
+          <div className="text-xs text-lamp-purple-400 mb-1">ID</div>
+          <div className="text-lg font-bold text-lamp-gold-300 font-mono">{nftAttributes.uniqueId}</div>
         </div>
       </div>
 
       {/* NFT Preview */}
-      <div className="border-4 border-gray-300 rounded-2xl p-6 bg-gradient-to-br from-gray-100 to-gray-200">
-        <p className="text-sm text-gray-700 mb-4 text-center font-semibold">🎨 Your Unique Portfolio NFT Preview</p>
+      <div className="border-4 border-lamp-purple-500/30 rounded-2xl p-6 bg-gradient-to-br from-lamp-night-800 to-lamp-night-900">
+        <p className="text-sm text-lamp-gold-400 mb-4 text-center font-semibold">✨ Your Unique Prosperity NFT Preview</p>
         
         {/* NFT Image to be generated */}
         <div
@@ -224,7 +224,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
             {/* NFT Header */}
             <div className="text-center mb-6">
               <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30 mb-3">
-                <span className="text-xs font-bold tracking-wider">YIELDSHIFT PORTFOLIO</span>
+                <span className="text-xs font-bold tracking-wider">LAMPFI PROSPERITY</span>
               </div>
               <div className="text-6xl mb-3">{nftAttributes.badge}</div>
               <h1 className={`text-4xl font-black mb-2 bg-gradient-to-r ${nftAttributes.palette.accent} bg-clip-text text-transparent`}>
@@ -287,8 +287,8 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
                 <div className="text-sm font-bold">{nftAttributes.edition}</div>
               </div>
               <div className="text-center">
-                <div className="text-xl font-black">YIELDSHIFT</div>
-                <div className="text-xs text-white/70">Portfolio NFT</div>
+                <div className="text-xl font-black">LAMPFI</div>
+                <div className="text-xs text-white/70">Prosperity NFT</div>
               </div>
               <div className="text-right">
                 <div className="text-xs text-white/60">ID</div>
@@ -301,24 +301,24 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
 
       {/* Instructions */}
       <div className="mt-6 grid md:grid-cols-2 gap-4">
-        <div className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl">
+        <div className="p-4 bg-gradient-to-br from-lamp-purple-900/40 to-lamp-magenta-900/40 border border-lamp-purple-500/30 rounded-xl">
           <div className="flex items-start gap-3">
-            <span className="text-3xl">🎨</span>
+            <span className="text-3xl">🪔</span>
             <div>
-              <p className="text-sm font-bold text-purple-900 mb-1">Unique NFT Art</p>
-              <p className="text-xs text-purple-700">
-                Each portfolio health score generates a unique NFT with random colors, patterns, and rarity based on your wallet activity!
+              <p className="text-sm font-bold text-lamp-gold-400 mb-1">Unique Mystical Art</p>
+              <p className="text-xs text-lamp-purple-200">
+                Each prosperity score generates a unique NFT with mystical colors, patterns, and rarity based on your lamp's activity!
               </p>
             </div>
           </div>
         </div>
-        <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl">
+        <div className="p-4 bg-gradient-to-br from-lamp-teal-900/40 to-lamp-teal-800/40 border border-lamp-teal-500/30 rounded-xl">
           <div className="flex items-start gap-3">
-            <span className="text-3xl">📱</span>
+            <span className="text-3xl">✨</span>
             <div>
-              <p className="text-sm font-bold text-blue-900 mb-1">Share Everywhere</p>
-              <p className="text-xs text-blue-700">
-                Download your NFT and share it on Twitter, Discord, Telegram, or use it as your PFP to show off your DeFi portfolio!
+              <p className="text-sm font-bold text-lamp-gold-400 mb-1">Share Your Prosperity</p>
+              <p className="text-xs text-lamp-purple-200">
+                Download your NFT and share it on Twitter, Discord, Telegram, or use it as your PFP to show off your mystical prosperity!
               </p>
             </div>
           </div>

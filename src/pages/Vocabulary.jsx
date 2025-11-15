@@ -87,24 +87,24 @@ const Vocabulary = () => {
       icon: "💰"
     },
     {
-      term: "Migration Score",
-      definition: "YieldShift's AI-powered rating (0-100) of how beneficial a migration would be for you.",
-      example: "A score of 85 means it's highly recommended, considering APY gain, costs, safety, and timing.",
-      category: "YieldShift",
+      term: "Wish Score",
+      definition: "LampFi's Genie-powered rating (0-100) of how beneficial a wish would be for your prosperity.",
+      example: "A score of 85 means it's highly blessed, considering blessing gains, costs, safety, and timing.",
+      category: "LampFi",
       icon: "🎯"
     },
     {
       term: "Breakeven Time",
-      definition: "How long it takes for the extra yield to cover your migration costs.",
-      example: "If migration costs $50 and you'll earn $5 extra per day, breakeven is 10 days.",
-      category: "YieldShift",
+      definition: "How long it takes for the extra blessings to cover your wish granting costs.",
+      example: "If wish costs $50 and you'll earn $5 extra blessings per day, breakeven is 10 days.",
+      category: "LampFi",
       icon: "⏱️"
     },
     {
-      term: "Protocol Safety Score",
-      definition: "Our rating (0-10) of how secure and reliable a protocol is, based on audits, track record, and TVL.",
-      example: "Aave has a 9/10 safety score due to multiple audits and years of operation without hacks.",
-      category: "YieldShift",
+      term: "Protocol Safety Enchantment",
+      definition: "The Genie's rating (0-10) of how secure and reliable a protocol is, based on audits, track record, and TVL.",
+      example: "Aave has a 9/10 safety enchantment due to multiple audits and years of operation without hacks.",
+      category: "LampFi",
       icon: "🛡️"
     },
     {
@@ -129,16 +129,16 @@ const Vocabulary = () => {
       icon: "💎"
     },
     {
-      term: "Testnet",
-      definition: "A testing environment for blockchain networks where you can experiment without using real money. Uses test tokens that have no real value.",
-      example: "YieldShift runs on Sepolia testnet, so you can test all features with free test ETH from faucets.",
+      term: "Mystical Realm (Testnet)",
+      definition: "A testing environment for blockchain networks where you can practice magic without using real treasures. Uses test tokens that have no real value.",
+      example: "LampFi operates in Sepolia mystical realms, so you can test all features with free test ETH from enchanted faucets.",
       category: "Basic",
       icon: "🧪"
     },
     {
       term: "Sepolia",
-      definition: "The name of Ethereum's current testnet. Also used by Base and Arbitrum for their testnets (Base Sepolia, Arbitrum Sepolia).",
-      example: "Switch your MetaMask to Sepolia testnet to use YieldShift.",
+      definition: "The name of Ethereum's current mystical testing realm. Also used by Base and Arbitrum for their realms (Base Sepolia, Arbitrum Sepolia).",
+      example: "Switch your MetaMask to Sepolia mystical realm to use LampFi.",
       category: "Basic",
       icon: "⟠"
     },
@@ -150,43 +150,43 @@ const Vocabulary = () => {
       icon: "💧"
     },
     {
-      term: "Portfolio Health Score",
-      definition: "YieldShift's 0-100 rating of your wallet based on balance, transaction activity, wallet age, and asset diversity.",
-      example: "A score of 85 means you have a healthy, active wallet with good balance and regular transactions.",
-      category: "YieldShift",
-      icon: "❤️"
+      term: "Prosperity Score",
+      definition: "LampFi's 0-100 blessing of your lamp based on balance, mystical activity, lamp age, and treasure diversity.",
+      example: "A score of 85 means you have a prosperous, blessed lamp with good riches and regular mystical activity.",
+      category: "LampFi",
+      icon: "✨"
     },
     {
-      term: "Portfolio Image Generator",
-      definition: "YieldShift feature that creates a shareable image of your portfolio health statistics.",
-      example: "Generate a portfolio health card showing your score, balance, and transaction stats to share on social media.",
-      category: "YieldShift",
+      term: "Prosperity NFT Generator",
+      definition: "LampFi feature that creates a shareable mystical NFT image of your prosperity statistics.",
+      example: "Generate a prosperity NFT showing your score, riches, and mystical activity to share on social media.",
+      category: "LampFi",
       icon: "📸"
     },
     {
-      term: "Gennie",
-      definition: "YieldShift's AI chatbot assistant that helps answer questions about the app and DeFi concepts. Click 3 times to activate.",
-      example: "Click Gennie three times to ask 'How do I get test ETH?' or 'What does APY mean?'",
-      category: "YieldShift",
-      icon: "🤖"
+      term: "The Genie",
+      definition: "LampFi's mystical AI guide that helps answer questions about the app and DeFi concepts. Click 3 times to summon.",
+      example: "Click the Genie three times to ask 'How do I get test ETH?' or 'What does APY mean?'",
+      category: "LampFi",
+      icon: "🧞"
     },
     {
-      term: "Multi-Chain",
-      definition: "Operating across multiple blockchain networks simultaneously. Allows you to manage assets on different chains in one place.",
-      example: "YieldShift shows your balances on Ethereum Sepolia, Base Sepolia, and Arbitrum Sepolia all in one dashboard.",
+      term: "Multi-Realm",
+      definition: "Operating across multiple mystical blockchain realms simultaneously. Allows you to manage treasures across different realms in one lamp.",
+      example: "LampFi shows your riches on Ethereum Sepolia, Base Sepolia, and Arbitrum Sepolia all in one treasure vault.",
       category: "Intermediate",
       icon: "🔗"
     },
     {
-      term: "Transaction History",
-      definition: "A record of all blockchain transactions associated with your wallet, including sent, received, and smart contract interactions.",
-      example: "YieldShift shows your last 20 transactions across all supported chains with filtering options.",
+      term: "Magical Ledger",
+      definition: "A record of all mystical transactions associated with your lamp, including sent, received, and smart contract rituals.",
+      example: "LampFi shows your last 20 mystical transactions across all supported realms with filtering options.",
       category: "Basic",
       icon: "📜"
     }
   ];
 
-  const categories = ["All", "Basic", "Intermediate", "Advanced", "YieldShift"];
+  const categories = ["All", "Basic", "Intermediate", "Advanced", "LampFi"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const filteredTerms = selectedCategory === "All" 
@@ -194,21 +194,22 @@ const Vocabulary = () => {
     : terms.filter(t => t.category === selectedCategory);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-mystical-night">
+      <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Page Title */}
       <div className="mb-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-2">DeFi Vocabulary</h1>
-        <p className="text-lg text-gray-600">Learn the language of decentralized finance</p>
+        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-2">📜 Mystical Terms of LampFi</h1>
+        <p className="text-lg text-lamp-purple-200">Learn the language of prosperity and enchantment ✨</p>
         </div>
 
         {/* Introduction */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-8 mb-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Master the Language of DeFi
+      <div className="bg-gradient-to-br from-lamp-purple-900/40 to-lamp-magenta-900/40 border border-lamp-purple-500/30 rounded-xl p-8 mb-8 text-center">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-4">
+            Master the Language of Mystical Finance
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            DeFi can be confusing with all its jargon. We've compiled all the terms you need 
-            to know to use YieldShift effectively and make informed decisions about your investments.
+          <p className="text-lg text-lamp-purple-200 leading-relaxed max-w-3xl mx-auto">
+            DeFi can be confusing with all its mystical jargon. The Genie has compiled all the terms you need 
+            to know to use LampFi effectively and make informed wishes about your treasures.
           </p>
         </div>
 
@@ -220,8 +221,8 @@ const Vocabulary = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md scale-110'
-                  : 'bg-white text-gray-700 border border-gray-300 hover:border-gray-400'
+                  ? 'bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white shadow-md scale-110'
+                  : 'bg-lamp-night-800/50 text-lamp-purple-200 border border-lamp-purple-500/30 hover:border-lamp-gold-400/50'
               }`}
             >
               {category}
@@ -234,12 +235,12 @@ const Vocabulary = () => {
           {filteredTerms.map((item, index) => (
             <div 
               key={index}
-            className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+            className="card rounded-xl p-6 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex gap-4">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-2xl shadow-lg">
+                  <div className="w-14 h-14 bg-gradient-to-br from-lamp-purple-600 to-lamp-magenta-600 rounded-xl flex items-center justify-center text-2xl shadow-lg shadow-lamp-purple-500/50">
                     {item.icon}
                   </div>
                 </div>
@@ -248,26 +249,26 @@ const Vocabulary = () => {
                 <div className="flex-1">
                   {/* Term & Category */}
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-xl font-bold text-gray-900">{item.term}</h3>
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">{item.term}</h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      item.category === 'Basic' ? 'bg-green-100 text-green-700 border border-green-300' :
-                      item.category === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-300' :
-                      item.category === 'Advanced' ? 'bg-red-100 text-red-700 border border-red-300' :
-                      'bg-blue-100 text-blue-700 border border-blue-300'
+                      item.category === 'Basic' ? 'bg-lamp-teal-500/20 text-lamp-teal-400 border border-lamp-teal-400/50' :
+                      item.category === 'Intermediate' ? 'bg-lamp-gold-500/20 text-lamp-gold-400 border border-lamp-gold-400/50' :
+                      item.category === 'Advanced' ? 'bg-lamp-rose-500/20 text-lamp-rose-400 border border-lamp-rose-400/50' :
+                      'bg-lamp-magenta-500/20 text-lamp-magenta-400 border border-lamp-magenta-400/50'
                     }`}>
                       {item.category}
                     </span>
                   </div>
 
                   {/* Definition */}
-                  <p className="text-gray-700 mb-3 leading-relaxed">
+                  <p className="text-lamp-purple-200 mb-3 leading-relaxed">
                     {item.definition}
                   </p>
 
                   {/* Example */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <p className="text-sm text-gray-700 mb-1 font-semibold">💡 Example:</p>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                  <div className="bg-lamp-night-800/60 border border-lamp-purple-500/30 rounded-lg p-4">
+                    <p className="text-sm text-lamp-gold-400 mb-1 font-semibold">💡 Example:</p>
+                    <p className="text-sm text-lamp-purple-300 leading-relaxed">
                       {item.example}
                     </p>
                   </div>
@@ -278,29 +279,30 @@ const Vocabulary = () => {
         </div>
 
         {/* Help Section */}
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-8 mt-8 text-center">
-        <div className="text-5xl mb-4">🤔</div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">Still confused?</h3>
-        <p className="text-gray-700 mb-2 text-lg font-semibold">
-          🤖 Try Gennie First!
+      <div className="bg-gradient-to-br from-lamp-purple-900/40 to-lamp-magenta-900/40 border border-lamp-purple-500/30 rounded-xl p-8 mt-8 text-center">
+        <div className="text-5xl mb-4">🧞</div>
+        <h3 className="text-2xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-4">Still seeking wisdom?</h3>
+        <p className="text-lamp-gold-300 mb-2 text-lg font-semibold">
+          🧞 Summon the Genie First!
         </p>
-        <p className="text-gray-600 mb-6">
-          Click Gennie (bottom right corner) 3 times to activate our AI chatbot. 
-          She can instantly explain any term or answer questions about YieldShift!
+        <p className="text-lamp-purple-200 mb-6">
+          Click the Genie (bottom right corner) 3 times to activate mystical guidance. 
+          The Genie can instantly explain any term or answer questions about LampFi!
         </p>
-        <div className="border-t border-purple-300 pt-6 mt-6">
-          <p className="text-gray-700 mb-6 text-lg">
-            Want to connect with the community?
+        <div className="border-t border-lamp-purple-500/30 pt-6 mt-6">
+          <p className="text-lamp-purple-200 mb-6 text-lg">
+            Want to join the mystical community?
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all hover:scale-105 shadow-lg">
+            <button className="px-6 py-3 bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white font-semibold rounded-xl hover:from-lamp-purple-500 hover:to-lamp-magenta-500 transition-all hover:scale-105 shadow-lg">
               💬 Join Discord
             </button>
-            <button className="px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border border-gray-300 hover:bg-gray-50 transition-all hover:scale-105">
-              📧 Email Support
+            <button className="px-6 py-3 bg-gradient-to-r from-lamp-gold-500 to-lamp-gold-600 text-lamp-night-950 font-semibold rounded-xl hover:from-lamp-gold-400 hover:to-lamp-gold-500 transition-all hover:scale-105 shadow-lg">
+              📧 Mystical Support
             </button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

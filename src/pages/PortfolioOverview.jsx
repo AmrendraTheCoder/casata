@@ -196,10 +196,10 @@ const PortfolioOverview = () => {
 
   // Get health color and emoji
   const getHealthStatus = (score) => {
-    if (score >= 80) return { color: 'text-green-600', bg: 'bg-green-100', emoji: '💚', label: 'Excellent' };
-    if (score >= 60) return { color: 'text-blue-600', bg: 'bg-blue-100', emoji: '💙', label: 'Good' };
-    if (score >= 40) return { color: 'text-yellow-600', bg: 'bg-yellow-100', emoji: '💛', label: 'Fair' };
-    return { color: 'text-orange-600', bg: 'bg-orange-100', emoji: '🧡', label: 'Needs Attention' };
+    if (score >= 80) return { color: 'text-lamp-teal-400', bg: 'bg-lamp-teal-500/30', emoji: '✨', label: 'Blessed' };
+    if (score >= 60) return { color: 'text-lamp-magenta-400', bg: 'bg-lamp-magenta-500/30', emoji: '🌟', label: 'Enchanted' };
+    if (score >= 40) return { color: 'text-lamp-gold-400', bg: 'bg-lamp-gold-500/30', emoji: '💫', label: 'Mystical' };
+    return { color: 'text-lamp-rose-400', bg: 'bg-lamp-rose-500/30', emoji: '⚠️', label: 'Needs Blessing' };
   };
 
   const healthStatus = getHealthStatus(healthScore);
@@ -243,31 +243,34 @@ const PortfolioOverview = () => {
   const getTxTypeStyle = (type) => {
     switch (type) {
       case 'received':
-        return { color: 'text-green-600', bg: 'bg-green-50', icon: '↓', label: 'Received' };
+        return { color: 'text-lamp-teal-400', bg: 'bg-lamp-teal-500/20', icon: '↓', label: 'Received' };
       case 'sent':
-        return { color: 'text-red-600', bg: 'bg-red-50', icon: '↑', label: 'Sent' };
+        return { color: 'text-lamp-rose-400', bg: 'bg-lamp-rose-500/20', icon: '↑', label: 'Sent' };
       case 'contract':
-        return { color: 'text-blue-600', bg: 'bg-blue-50', icon: '⚡', label: 'Contract' };
+        return { color: 'text-lamp-magenta-400', bg: 'bg-lamp-magenta-500/20', icon: '⚡', label: 'Contract' };
       default:
-        return { color: 'text-gray-600', bg: 'bg-gray-50', icon: '•', label: 'Other' };
+        return { color: 'text-lamp-purple-300', bg: 'bg-lamp-purple-500/20', icon: '•', label: 'Other' };
     }
   };
 
   if (loading && !stats) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
-        <div className="bg-white rounded-2xl shadow-xl p-12 text-center max-w-md">
-          <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 border-4 border-blue-200 rounded-full"></div>
-            <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+      <div className="min-h-screen bg-mystical-night flex items-center justify-center p-6">
+        <div className="card-premium p-12 text-center max-w-md">
+          <div className="relative w-24 h-24 mx-auto mb-6">
+            <div className="absolute inset-0 border-4 border-lamp-purple-500/30 rounded-full"></div>
+            <div className="absolute inset-0 border-4 border-lamp-gold-400 rounded-full border-t-transparent animate-spin"></div>
+            <div className="absolute inset-0 flex items-center justify-center text-4xl animate-float">
+              🪔
+            </div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Loading Portfolio
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-4">
+            Opening Treasure Vault
           </h2>
-          <p className="text-gray-600 mb-2">
-            Fetching your wallet data...
+          <p className="text-lamp-purple-200 mb-2">
+            The Genie is gathering your riches... ✨
           </p>
-          {/* <div className="text-sm text-gray-500 space-y-1 mt-4">
+          {/* <div className="text-sm text-lamp-purple-400 space-y-1 mt-4">
             <div className="flex items-center justify-center gap-2">
               <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
               <span>Scanning Sepolia</span>
@@ -287,40 +290,44 @@ const PortfolioOverview = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Header */}
-      <div className="mb-8">
+    <div className="min-h-screen bg-mystical-night">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Portfolio Intelligence</h1>
-            <p className="text-lg text-gray-600">Know your wallet • Understand your activity</p>
+            <h1 className="text-4xl font-extrabold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-2">Treasure Vault Intelligence</h1>
+            <p className="text-lg text-lamp-purple-200">Know your riches • Understand your mystical activity</p>
           </div>
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsTransactionModalOpen(true)}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl flex items-center gap-2"
+              className="px-6 py-3 bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white rounded-xl font-semibold hover:from-lamp-purple-500 hover:to-lamp-magenta-500 transition-all shadow-lg hover:shadow-xl flex items-center gap-2"
             >
-              <span className="text-xl">💸</span>
+              <span className="text-xl">💎</span>
               <span>Make Transaction</span>
             </button>
             <div className="text-right">
-              <div className="text-sm text-gray-500 mb-1">Wallet Address</div>
-              <div className="text-lg font-mono font-semibold text-gray-900">{formatAddress(address)}</div>
+              <div className="text-sm text-lamp-purple-400 mb-1">Lamp Address</div>
+              <div className="text-lg font-mono font-semibold text-lamp-gold-400">{formatAddress(address)}</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Health Score Card */}
-      <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-2xl p-8 mb-8 shadow-lg">
+      <div className="card-premium p-8 mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-sm font-semibold text-gray-500 mb-2">Portfolio Health Score</div>
+            <div className="text-sm font-semibold text-lamp-purple-400 mb-2 flex items-center gap-2">
+              <span>✨</span>
+              Prosperity Score
+            </div>
             <div className="flex items-center gap-4">
-              <div className="text-6xl font-extrabold text-gray-900">{healthScore}</div>
+              <div className="text-6xl font-extrabold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">{healthScore}</div>
               <div>
-                <div className={`text-3xl ${healthStatus.color} font-bold`}>/100</div>
-                <div className={`inline-flex items-center gap-2 ${healthStatus.bg} ${healthStatus.color} px-3 py-1 rounded-full text-sm font-semibold mt-2`}>
+                <div className="text-3xl text-lamp-purple-400 font-bold">/100</div>
+                <div className="inline-flex items-center gap-2 bg-lamp-teal-500/30 border border-lamp-teal-400/50 text-lamp-teal-300 px-3 py-1 rounded-full text-sm font-semibold mt-2">
                   <span>{healthStatus.emoji}</span>
                   <span>{healthStatus.label}</span>
                 </div>
@@ -328,42 +335,42 @@ const PortfolioOverview = () => {
             </div>
           </div>
           <div className="text-right">
-            <div className="text-sm text-gray-500 mb-3">Score Breakdown</div>
+            <div className="text-sm text-lamp-purple-400 mb-3">Blessing Breakdown</div>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-gray-600 w-20 text-right">Balance</span>
-                <div className="w-24 bg-gray-200 rounded-full h-2">
-                  <div className="bg-blue-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.balance}%` }}></div>
+                <span className="text-lamp-purple-300 w-20 text-right">Balance</span>
+                <div className="w-24 bg-lamp-night-800 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-lamp-purple-500 to-lamp-purple-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.balance}%` }}></div>
                 </div>
-                <span className="text-xs text-gray-500 w-8">{healthComponents.balance}%</span>
+                <span className="text-xs text-lamp-purple-400 w-8">{healthComponents.balance}%</span>
               </div>
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-gray-600 w-20 text-right">Activity</span>
-                <div className="w-24 bg-gray-200 rounded-full h-2">
-                  <div className="bg-green-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.activity}%` }}></div>
+                <span className="text-lamp-purple-300 w-20 text-right">Activity</span>
+                <div className="w-24 bg-lamp-night-800 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-lamp-teal-500 to-lamp-teal-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.activity}%` }}></div>
                 </div>
-                <span className="text-xs text-gray-500 w-8">{healthComponents.activity}%</span>
+                <span className="text-xs text-lamp-purple-400 w-8">{healthComponents.activity}%</span>
               </div>
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-gray-600 w-20 text-right">Diversity</span>
-                <div className="w-24 bg-gray-200 rounded-full h-2">
-                  <div className="bg-purple-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.diversity}%` }}></div>
+                <span className="text-lamp-purple-300 w-20 text-right">Diversity</span>
+                <div className="w-24 bg-lamp-night-800 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-lamp-magenta-500 to-lamp-magenta-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.diversity}%` }}></div>
                 </div>
-                <span className="text-xs text-gray-500 w-8">{healthComponents.diversity}%</span>
+                <span className="text-xs text-lamp-purple-400 w-8">{healthComponents.diversity}%</span>
               </div>
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-gray-600 w-20 text-right">Experience</span>
-                <div className="w-24 bg-gray-200 rounded-full h-2">
-                  <div className="bg-orange-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.experience}%` }}></div>
+                <span className="text-lamp-purple-300 w-20 text-right">Experience</span>
+                <div className="w-24 bg-lamp-night-800 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-lamp-gold-500 to-lamp-gold-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.experience}%` }}></div>
                 </div>
-                <span className="text-xs text-gray-500 w-8">{healthComponents.experience}%</span>
+                <span className="text-xs text-lamp-purple-400 w-8">{healthComponents.experience}%</span>
               </div>
               <div className="flex items-center gap-2 justify-end">
-                <span className="text-gray-600 w-20 text-right">Efficiency</span>
-                <div className="w-24 bg-gray-200 rounded-full h-2">
-                  <div className="bg-indigo-600 h-2 rounded-full transition-all" style={{ width: `${healthComponents.efficiency}%` }}></div>
+                <span className="text-lamp-purple-300 w-20 text-right">Efficiency</span>
+                <div className="w-24 bg-lamp-night-800 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-lamp-purple-600 to-lamp-purple-700 h-2 rounded-full transition-all" style={{ width: `${healthComponents.efficiency}%` }}></div>
                 </div>
-                <span className="text-xs text-gray-500 w-8">{healthComponents.efficiency}%</span>
+                <span className="text-xs text-lamp-purple-400 w-8">{healthComponents.efficiency}%</span>
               </div>
             </div>
           </div>
@@ -373,68 +380,68 @@ const PortfolioOverview = () => {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         {/* Total Balance */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-          <div className="text-sm text-gray-500 mb-2">Total Balance</div>
-          <div className="text-3xl font-bold text-gray-900 mb-1">
+        <div className="stat-card hover:scale-105">
+          <div className="text-sm text-lamp-purple-400 mb-2">Total Riches</div>
+          <div className="text-3xl font-bold text-lamp-gold-400 mb-1">
             {stats?.totalBalance.toFixed(4)} ETH
           </div>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-lamp-purple-300">
             ≈ ${(stats?.totalBalance * 2000).toFixed(2)} USD
           </div>
         </div>
 
         {/* Total Transactions */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-          <div className="text-sm text-gray-500 mb-2">Total Transactions</div>
-          <div className="text-3xl font-bold text-gray-900 mb-1">{stats?.totalTransactions}</div>
-          <div className="text-sm text-green-600">
+        <div className="stat-card hover:scale-105">
+          <div className="text-sm text-lamp-purple-400 mb-2">Magical Ledger</div>
+          <div className="text-3xl font-bold text-lamp-purple-200 mb-1">{stats?.totalTransactions}</div>
+          <div className="text-sm text-lamp-teal-400">
             {stats?.recentActivity} in last 30 days
           </div>
         </div>
 
         {/* Wallet Age */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-          <div className="text-sm text-gray-500 mb-2">Wallet Age</div>
-          <div className="text-3xl font-bold text-gray-900 mb-1">{stats?.walletAge}</div>
-          <div className="text-sm text-gray-600">days old</div>
+        <div className="stat-card hover:scale-105">
+          <div className="text-sm text-lamp-purple-400 mb-2">Lamp Age</div>
+          <div className="text-3xl font-bold text-lamp-magenta-400 mb-1">{stats?.walletAge}</div>
+          <div className="text-sm text-lamp-purple-300">days blessed</div>
         </div>
 
         {/* Activity Level */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-          <div className="text-sm text-gray-500 mb-2">Activity Level</div>
-          <div className="text-3xl font-bold text-gray-900 mb-1 capitalize">
+        <div className="stat-card hover:scale-105">
+          <div className="text-sm text-lamp-purple-400 mb-2">Mystical Activity</div>
+          <div className="text-3xl font-bold text-lamp-gold-400 mb-1 capitalize">
             {stats?.activityLevel}
           </div>
-          <div className="text-sm text-gray-600">
-            {stats?.contractInteractions} contract interactions
+          <div className="text-sm text-lamp-purple-300">
+            {stats?.contractInteractions} contract rituals
           </div>
         </div>
       </div>
 
       {/* Chain Breakdown */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Multi-Chain Overview</h2>
+      <div className="card p-6 mb-8">
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-6">Multi-Realm Overview</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats?.balanceByChain.map((chainData, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6"
+              className="bg-gradient-to-br from-lamp-purple-900/40 to-lamp-night-800/40 border border-lamp-purple-500/30 rounded-xl p-6 hover:border-lamp-gold-400/50 transition-all"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="text-lg font-bold text-gray-900">{chainData.chain}</div>
+                <div className="text-lg font-bold text-lamp-gold-300">{chainData.chain}</div>
                 <div className="text-2xl">
                   {chainData.chain.includes('Sepolia ETH') && '⟠'}
                   {chainData.chain.includes('Base') && '🔵'}
                   {chainData.chain.includes('Arbitrum') && '🔷'}
                 </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
+              <div className="text-3xl font-bold text-lamp-purple-100 mb-1">
                 {chainData.balance.toFixed(4)}
               </div>
-              <div className="text-sm text-gray-600">{chainData.symbol}</div>
-              <div className="mt-4 pt-4 border-t border-blue-200">
-                <div className="text-xs text-gray-600">
-                  {((chainData.balance / stats.totalBalance) * 100).toFixed(1)}% of portfolio
+              <div className="text-sm text-lamp-purple-300">{chainData.symbol}</div>
+              <div className="mt-4 pt-4 border-t border-lamp-purple-500/30">
+                <div className="text-xs text-lamp-purple-300">
+                  {((chainData.balance / stats.totalBalance) * 100).toFixed(1)}% of treasure vault
                 </div>
               </div>
             </div>
@@ -443,12 +450,12 @@ const PortfolioOverview = () => {
       </div>
 
       {/* Transaction History */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
+      <div className="card rounded-xl p-6 mb-8">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-            Recent Transactions
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent flex items-center gap-3">
+            Magical Ledger
             {loading && (
-              <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-5 h-5 border-2 border-lamp-purple-500 border-t-transparent rounded-full animate-spin"></div>
             )}
           </h2>
 
@@ -457,17 +464,17 @@ const PortfolioOverview = () => {
             <button
               onClick={() => setActiveChain('all')}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeChain === 'all'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white'
+                : 'bg-lamp-night-800/50 text-lamp-purple-200 hover:bg-lamp-night-700/50 border border-lamp-purple-500/30'
                 }`}
             >
-              All Chains
+              All Realms
             </button>
             <button
               onClick={() => setActiveChain('sepolia ETH')}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeChain === 'sepolia'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white'
+                : 'bg-lamp-night-800/50 text-lamp-purple-200 hover:bg-lamp-night-700/50 border border-lamp-purple-500/30'
                 }`}
             >
               Sepolia
@@ -475,8 +482,8 @@ const PortfolioOverview = () => {
             <button
               onClick={() => setActiveChain('base sepolia')}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeChain === 'base sepolia'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white'
+                : 'bg-lamp-night-800/50 text-lamp-purple-200 hover:bg-lamp-night-700/50 border border-lamp-purple-500/30'
                 }`}
             >
               Base Sepolia
@@ -484,8 +491,8 @@ const PortfolioOverview = () => {
             <button
               onClick={() => setActiveChain('arbitrum sepolia')}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeChain === 'arbitrum sepolia'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white'
+                : 'bg-lamp-night-800/50 text-lamp-purple-200 hover:bg-lamp-night-700/50 border border-lamp-purple-500/30'
                 }`}
             >
               Arbitrum Sepolia
@@ -497,14 +504,14 @@ const PortfolioOverview = () => {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Type</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Hash</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">From/To</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Amount</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Chain</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Time</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Status</th>
+              <tr className="border-b border-lamp-purple-500/30">
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">Type</th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">Hash</th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">From/To</th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">Amount</th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">Realm</th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">Time</th>
+                <th className="text-left py-3 px-4 text-sm font-semibold text-lamp-gold-400">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -514,11 +521,11 @@ const PortfolioOverview = () => {
                   return (
                     <tr
                       key={index}
-                      className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                      className="border-b border-lamp-purple-500/20 hover:bg-lamp-night-800/50 transition-colors"
                     >
                       <td className="py-4 px-4">
                         <div
-                          className={`inline-flex items-center gap-2 ${typeStyle.bg} ${typeStyle.color} px-3 py-1 rounded-full text-xs font-semibold`}
+                          className={`inline-flex items-center gap-2 ${typeStyle.bg} ${typeStyle.color} px-3 py-1 rounded-full text-xs font-semibold border border-current/30`}
                         >
                           <span>{typeStyle.icon}</span>
                           <span>{typeStyle.label}</span>
@@ -529,30 +536,30 @@ const PortfolioOverview = () => {
                           href={tx.explorerUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-mono text-sm text-blue-600 hover:text-blue-700 hover:underline"
+                          className="font-mono text-sm text-lamp-magenta-400 hover:text-lamp-magenta-300 hover:underline"
                         >
                           {formatTxHash(tx.hash)}
                         </a>
                       </td>
                       <td className="py-4 px-4">
-                        <div className="font-mono text-sm text-gray-600">
+                        <div className="font-mono text-sm text-lamp-purple-300">
                           {tx.type === 'sent' ? formatAddress(tx.to) : formatAddress(tx.from)}
                         </div>
                       </td>
                       <td className="py-4 px-4">
-                        <div className="font-semibold text-gray-900">
+                        <div className="font-semibold text-lamp-gold-300">
                           {tx.value > 0 ? `${tx.value.toFixed(4)} ETH` : '—'}
                         </div>
                       </td>
                       <td className="py-4 px-4">
-                        <div className="text-sm text-gray-600">{tx.chain}</div>
+                        <div className="text-sm text-lamp-purple-300">{tx.chain}</div>
                       </td>
                       <td className="py-4 px-4">
-                        <div className="text-sm text-gray-600">{formatTime(tx.timestamp)}</div>
+                        <div className="text-sm text-lamp-purple-300">{formatTime(tx.timestamp)}</div>
                       </td>
                       <td className="py-4 px-4">
                         <div
-                          className={`text-sm font-semibold ${tx.isError ? 'text-red-600' : 'text-green-600'
+                          className={`text-sm font-semibold ${tx.isError ? 'text-lamp-rose-400' : 'text-lamp-teal-400'
                             }`}
                         >
                           {tx.isError ? '✗ Failed' : '✓ Success'}
@@ -564,7 +571,7 @@ const PortfolioOverview = () => {
               ) : (
                 <tr>
                   <td colSpan="7" className="py-12 text-center">
-                    <div className="text-gray-400 text-lg">No transactions found</div>
+                    <div className="text-lamp-purple-400 text-lg">No mystical records found</div>
                   </td>
                 </tr>
               )}
@@ -584,71 +591,72 @@ const PortfolioOverview = () => {
       />
 
       {/* Faucet Section */}
-      <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-8 mb-8 mt-8">
+      <div className="bg-gradient-to-br from-lamp-teal-900/40 to-lamp-teal-800/40 border border-lamp-teal-500/30 rounded-xl p-8 mb-8 mt-8">
         <div className="flex items-center justify-center gap-3 mb-6">
           <span className="text-4xl">💧</span>
-          <h2 className="text-2xl font-bold text-gray-900">Need Test ETH?</h2>
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">Need Mystical Test ETH?</h2>
         </div>
-        <p className="text-center text-gray-700 mb-6 max-w-2xl mx-auto">
-          Get free test ETH from these faucets to test transactions on Sepolia testnets. No real funds needed!
+        <p className="text-center text-lamp-purple-200 mb-6 max-w-2xl mx-auto">
+          Summon free test ETH from these enchanted faucets to practice your magic on Sepolia realms. No real treasures needed! ✨
         </p>
         <div className="grid md:grid-cols-3 gap-4">
           <a
             href="https://www.alchemy.com/faucets/ethereum-sepolia"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
+            className="flex flex-col items-center gap-2 bg-lamp-night-800/60 backdrop-blur-lg rounded-xl p-4 border border-lamp-purple-500/30 hover:border-lamp-gold-400/50 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
           >
             <div className="text-3xl">⟠</div>
-            <div className="font-bold text-gray-900">Sepolia Faucet</div>
-            <div className="text-sm text-gray-600 text-center">Get ETH for Ethereum Sepolia</div>
-            <div className="text-xs text-blue-600 mt-2">→ Alchemy Faucet</div>
+            <div className="font-bold text-lamp-gold-300">Sepolia Faucet</div>
+            <div className="text-sm text-lamp-purple-300 text-center">Get ETH for Ethereum Sepolia</div>
+            <div className="text-xs text-lamp-magenta-400 mt-2">→ Alchemy Faucet</div>
           </a>
           <a
             href="https://www.alchemy.com/faucets/base-sepolia"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
+            className="flex flex-col items-center gap-2 bg-lamp-night-800/60 backdrop-blur-lg rounded-xl p-4 border border-lamp-purple-500/30 hover:border-lamp-gold-400/50 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
           >
             <div className="text-3xl">🔵</div>
-            <div className="font-bold text-gray-900">Base Sepolia</div>
-            <div className="text-sm text-gray-600 text-center">Get ETH for Base testnet</div>
-            <div className="text-xs text-blue-600 mt-2">→ Alchemy Faucet</div>
+            <div className="font-bold text-lamp-gold-300">Base Sepolia</div>
+            <div className="text-sm text-lamp-purple-300 text-center">Get ETH for Base testnet</div>
+            <div className="text-xs text-lamp-magenta-400 mt-2">→ Alchemy Faucet</div>
           </a>
           <a
             href="https://www.alchemy.com/faucets/arbitrum-sepolia"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
+            className="flex flex-col items-center gap-2 bg-lamp-night-800/60 backdrop-blur-lg rounded-xl p-4 border border-lamp-purple-500/30 hover:border-lamp-gold-400/50 hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
           >
             <div className="text-3xl">🔷</div>
-            <div className="font-bold text-gray-900">Arbitrum Sepolia</div>
-            <div className="text-sm text-gray-600 text-center">Get ETH for Arbitrum testnet</div>
-            <div className="text-xs text-blue-600 mt-2">→ Alchemy Faucet</div>
+            <div className="font-bold text-lamp-gold-300">Arbitrum Sepolia</div>
+            <div className="text-sm text-lamp-purple-300 text-center">Get ETH for Arbitrum testnet</div>
+            <div className="text-xs text-lamp-magenta-400 mt-2">→ Alchemy Faucet</div>
           </a>
         </div>
-        <div className="mt-6 text-center text-sm text-gray-600">
-          <span className="font-semibold">💡 Tip:</span> You'll need test ETH to see real transactions in your portfolio!
+        <div className="mt-6 text-center text-sm text-lamp-purple-200">
+          <span className="font-semibold">💡 Genie's Tip:</span> You'll need test ETH to see real mystical transactions in your treasure vault!
         </div>
       </div>
 
       {/* CTA to Dashboard */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white shadow-xl">
-        <div className="text-5xl mb-4">🚀</div>
-        <h2 className="text-3xl font-bold mb-3">Ready to Optimize Your Yields?</h2>
-        <p className="text-xl mb-6 text-blue-100">
-          Now that you know your wallet, let's find opportunities to grow it
+      <div className="bg-gradient-to-r from-lamp-purple-600 via-lamp-magenta-600 to-lamp-purple-600 rounded-2xl p-8 text-center text-white shadow-xl shadow-lamp-purple-900/50">
+        <div className="text-5xl mb-4">🧞</div>
+        <h2 className="text-3xl font-bold mb-3">Ready to Summon Prosperity?</h2>
+        <p className="text-xl mb-6 text-lamp-purple-100">
+          Now that you know your treasures, let's find wishes to grow your vault ✨
         </p>
         <a
           href="#dashboard"
-          className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-lg"
+          className="inline-flex items-center gap-3 bg-gradient-to-r from-lamp-gold-500 to-lamp-gold-600 text-lamp-night-950 px-8 py-4 rounded-xl font-bold text-lg hover:from-lamp-gold-400 hover:to-lamp-gold-500 transition-all hover:scale-105 shadow-lg"
         >
-          <span>Go to Yield Optimizer</span>
+          <span>Summon the Genie</span>
           <span className="text-2xl">→</span>
         </a>
-        <div className="mt-6 text-sm text-blue-100">
-          Analyze 200+ protocols • Find better yields • Maximize returns
+        <div className="mt-6 text-sm text-lamp-purple-100">
+          Analyze 200+ mystical protocols • Discover prosperity wishes • Maximize blessings
         </div>
+      </div>
       </div>
     </div>
   );

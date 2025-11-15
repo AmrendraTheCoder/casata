@@ -31,49 +31,49 @@ const PortfolioSummary = ({ positions, opportunities, healthScore: providedHealt
   const healthScore = providedHealthScore !== undefined ? providedHealthScore : 100;
 
   const getHealthColor = (score) => {
-    if (score >= 80) return 'text-green-600';
-    if (score >= 60) return 'text-yellow-600';
-    return 'text-red-600';
+    if (score >= 80) return 'text-lamp-teal-400';
+    if (score >= 60) return 'text-lamp-gold-400';
+    return 'text-lamp-rose-400';
   };
 
   const getHealthLabel = (score) => {
-    if (score >= 80) return 'Healthy';
-    if (score >= 60) return 'Needs Attention';
-    return 'Critical';
+    if (score >= 80) return 'Blessed';
+    if (score >= 60) return 'Needs Enchantment';
+    return 'Cursed';
   };
 
   return (
     <div className="mb-8 slide-up">
-      {/* Main Stats - Big Impact */}
+      {/* Main Stats - Magical Impact */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {/* Total Value */}
         <div className="stat-card group hover:scale-105 transition-all">
           <div className="flex items-start justify-between mb-3">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Total Portfolio</p>
-              <p className="text-4xl font-extrabold text-gray-900">{formatCurrency(totalValue)}</p>
+              <p className="text-sm font-medium text-lamp-purple-300 mb-1">Treasure Vault Total</p>
+              <p className="text-4xl font-extrabold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">{formatCurrency(totalValue)}</p>
             </div>
-            <div className="text-3xl group-hover:scale-110 transition-transform">💰</div>
+            <div className="text-3xl group-hover:scale-110 transition-transform animate-float">💎</div>
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-            {positions.length} active position{positions.length !== 1 ? 's' : ''}
+          <div className="flex items-center gap-2 text-sm text-lamp-purple-300">
+            <span className="w-2 h-2 bg-lamp-purple-500 rounded-full animate-pulse"></span>
+            {positions.length} enchanted position{positions.length !== 1 ? 's' : ''}
           </div>
         </div>
 
         {/* Potential Gain - Highlighted */}
-        <div className="stat-card bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 group hover:scale-105 transition-all">
+        <div className="stat-card bg-gradient-to-br from-lamp-teal-900/40 to-lamp-teal-800/40 border-2 border-lamp-teal-400/50 group hover:scale-105 transition-all">
           <div className="flex items-start justify-between mb-3">
             <div>
-              <p className="text-sm font-semibold text-green-700 mb-1">💡 You Could Earn</p>
-              <p className="text-4xl font-extrabold text-green-600">
+              <p className="text-sm font-semibold text-lamp-teal-300 mb-1">✨ Genie's Promise</p>
+              <p className="text-4xl font-extrabold text-lamp-teal-400">
                 +{formatCurrency(potentialGain)}
               </p>
             </div>
-            <div className="text-3xl group-hover:scale-110 transition-transform">🚀</div>
+            <div className="text-3xl group-hover:scale-110 transition-transform animate-sparkle">🧞</div>
           </div>
-          <p className="text-sm text-green-700 font-medium">
-            per year with recommended migrations
+          <p className="text-sm text-lamp-teal-300 font-medium">
+            per year with granted wishes
           </p>
         </div>
 
@@ -81,26 +81,26 @@ const PortfolioSummary = ({ positions, opportunities, healthScore: providedHealt
         <div className="stat-card group hover:scale-105 transition-all">
           <div className="flex items-start justify-between mb-3">
             <div>
-              <p className="text-sm font-medium text-gray-600 mb-1">Portfolio Health</p>
+              <p className="text-sm font-medium text-lamp-purple-300 mb-1">Prosperity Score</p>
               <div className="flex items-baseline gap-2">
                 <p className={`text-4xl font-extrabold ${getHealthColor(healthScore)}`}>
                   {healthScore}
                 </p>
-                <p className="text-2xl font-bold text-gray-400">/100</p>
+                <p className="text-2xl font-bold text-lamp-purple-500">/100</p>
               </div>
             </div>
             <div className="text-3xl group-hover:scale-110 transition-transform">
-              {healthScore >= 80 ? '💚' : healthScore >= 60 ? '💛' : '❤️'}
+              {healthScore >= 80 ? '✨' : healthScore >= 60 ? '🌟' : '⚠️'}
             </div>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+          <div className="w-full bg-lamp-night-800 rounded-full h-2 mt-2">
             <div
               className={`h-2 rounded-full transition-all duration-1000 ${
                 healthScore >= 80
-                  ? 'bg-gradient-to-r from-green-400 to-green-600'
+                  ? 'bg-gradient-to-r from-lamp-teal-400 to-lamp-teal-600'
                   : healthScore >= 60
-                  ? 'bg-gradient-to-r from-yellow-400 to-yellow-600'
-                  : 'bg-gradient-to-r from-red-400 to-red-600'
+                  ? 'bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-600'
+                  : 'bg-gradient-to-r from-lamp-rose-400 to-lamp-rose-600'
               }`}
               style={{ width: `${healthScore}%` }}
             ></div>
@@ -113,25 +113,25 @@ const PortfolioSummary = ({ positions, opportunities, healthScore: providedHealt
 
       {/* Secondary Stats - Current Performance */}
       <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-        <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+        <div className="bg-lamp-night-800/50 border border-lamp-purple-500/30 rounded-xl p-4 shadow-lg backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs text-gray-600 font-medium mb-1">Current Annual Yield</p>
-              <p className="text-2xl font-bold text-gray-900">{formatCurrency(currentYield)}</p>
+              <p className="text-xs text-lamp-purple-400 font-medium mb-1">Current Blessings</p>
+              <p className="text-2xl font-bold text-lamp-purple-200">{formatCurrency(currentYield)}</p>
+              <p className="text-xs text-lamp-purple-400 mt-1">per year</p>
             </div>
-            {/* <span className="text-2xl">📊</span> */}
           </div>
         </div>
         
-        <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+        <div className="bg-lamp-night-800/50 border border-lamp-teal-400/50 rounded-xl p-4 shadow-lg backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs text-gray-600 font-medium mb-1">Potential Annual Yield</p>
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-xs text-lamp-teal-400 font-medium mb-1">Potential Prosperity</p>
+              <p className="text-2xl font-bold text-lamp-teal-400">
                 {formatCurrency(currentYield + potentialGain)}
               </p>
+              <p className="text-xs text-lamp-teal-400 mt-1">per year with wishes ✨</p>
             </div>
-            {/* <span className="text-2xl">✨</span> */}
           </div>
         </div>
       </div>

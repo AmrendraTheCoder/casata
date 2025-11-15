@@ -1,14 +1,16 @@
-# YieldShift 🎯
+# LampFi 🪔✨
 
-AI-powered yield optimizer for DeFi farmers. Automatically detect underperforming positions and get migration recommendations to earn 30-40% more yield.
+**Your Wishes, Our Command**
 
-## Features
+Summon the Genie to unlock prosperity. AI-powered magical optimization finds you 30-40% better yields across 200+ enchanted protocols. Transform your DeFi journey into a tale of Arabian Nights!
 
-- 🔍 **Smart Detection**: Automatically scans your wallet for DeFi positions
-- 🤖 **AI Analysis**: Compares 200+ protocols across chains
-- ⚡ **Migration Scores**: Ranked recommendations with cost breakdowns
-- 💰 **Maximize Yields**: Find better opportunities across Ethereum, Base, and Arbitrum
-- 🔒 **Read-Only**: We never ask for signatures or access to your funds
+## Magical Features
+
+- 🔮 **Mystical Vision**: The Genie peers into your treasure vault in 3 seconds
+- 🧞 **Genie's Wisdom**: Ancient AI magic compares 200+ enchanted pools across mystical realms
+- ✨ **Wish Fulfillment**: Every wish receives a magical score (0-100) with transparent costs
+- 💎 **Maximize Prosperity**: Discover better opportunities across Ethereum, Base, and Arbitrum
+- 🛡️ **Sacred Protection**: Read-only magic - we never ask for signatures or access to your riches
 
 ## Tech Stack
 
@@ -78,6 +80,7 @@ The app includes mock data for demo purposes. Simply:
 5. You'll see demo positions with migration recommendations!
 
 The demo data includes:
+
 - 3 sample positions (USDC on Ethereum, ETH staking, USDT on Arbitrum)
 - Multiple migration opportunities with scores
 - Realistic APY data and cost calculations
@@ -106,14 +109,14 @@ The app will fetch your actual DeFi positions and analyze real opportunities fro
 - Base
 - Arbitrum
 
-## How It Works
+## How the Magic Works
 
-1. **Connect Wallet**: Connect your MetaMask wallet
-2. **Position Detection**: We detect your active DeFi positions
-3. **Opportunity Analysis**: AI compares your positions against 200+ protocols
-4. **Migration Scores**: Get ranked recommendations (0-100 score)
-5. **Review Details**: See cost breakdowns, APY comparisons, and timing advice
-6. **Execute**: Follow the step-by-step migration instructions
+1. **Summon Your Lamp**: Connect your MetaMask wallet (rub the lamp 🪔)
+2. **Treasure Detection**: The Genie detects your enchanted DeFi positions
+3. **Mystical Analysis**: Ancient AI magic compares your treasures against 200+ protocols
+4. **Wish Scoring**: Get ranked wishes with magical scores (0-100)
+5. **Divine Revelation**: See cost prophecies, blessing comparisons, and divine timing
+6. **Grant Wishes**: Follow the Genie's step-by-step incantations
 
 ## Migration Score Formula
 
@@ -146,17 +149,20 @@ casata/
 ## API Keys (Optional but Recommended)
 
 ### Alchemy API
+
 - Free tier: 300M compute units/month
 - Get it here: https://www.alchemy.com/
 - Used for: Fetching wallet balances and positions
 
 ### WalletConnect Project ID
+
 - Free tier available
 - Get it here: https://cloud.walletconnect.com/
 - Used for: Enhanced wallet connection options
 
 ### DefiLlama
-- No API key required! 
+
+- No API key required!
 - Used for: Protocol APY data
 
 ## Development
@@ -222,8 +228,8 @@ MIT
 
 ## Built For
 
-DeFi farmers who want to maximize returns without constantly monitoring yields across chains.
+Modern Aladdins seeking prosperity - DeFi farmers who want to maximize returns without constantly monitoring yields across mystical realms.
 
 ---
 
-**Note**: Always DYOR (Do Your Own Research) before making financial decisions. This tool provides recommendations but you should verify all data before executing migrations.
+**Genie's Disclaimer**: Always seek divine wisdom (DYOR) before making financial decisions. The Genie provides magical recommendations but you should verify all prophecies before granting wishes. ✨

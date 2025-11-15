@@ -12,80 +12,80 @@ const Gennie = () => {
   // Knowledge base for Gennie
   const knowledgeBase = {
     greetings: [
-      "Hello! I'm Gennie, your YieldShift assistant! 👋 How can I help you today?",
-      "Hi there! Gennie here, ready to help you with YieldShift! What would you like to know?",
-      "Hey! I'm Gennie, your friendly DeFi guide. Ask me anything about YieldShift!",
+      "Greetings, Aladdin! 🧞‍♂️ I am the Genie of LampFi, here to grant your wishes for prosperity! How may I serve you?",
+      "Welcome back, seeker of fortune! ✨ Your Genie awaits your command. What magical knowledge do you seek?",
+      "Ah, you've summoned me! 🪔 I am the Genie, guardian of wealth and prosperity. Ask, and your wish shall be answered!",
     ],
     
     topics: {
       'portfolio': {
-        keywords: ['portfolio', 'wallet', 'balance', 'overview', 'assets'],
+        keywords: ['portfolio', 'wallet', 'balance', 'overview', 'assets', 'treasure', 'vault'],
         responses: [
-          "Your Portfolio Overview shows your complete wallet analysis including health score, balances across all chains, and recent transactions. It's the first step to understanding your DeFi activity!",
-          "The Portfolio page displays your total balance, transaction history, and activity level across Sepolia testnet chains. You can filter transactions by chain and see detailed stats.",
+          "Your Treasure Vault reveals all your riches! ✨ Behold your prosperity score, mystical balances across all realms, and the ledger of your magical transactions. This is where your journey begins!",
+          "The Treasure Vault displays your complete fortune, wish history, and activity across the enchanted Sepolia realms. Filter by kingdom and witness your wealth grow!",
         ]
       },
       'optimize': {
-        keywords: ['optimize', 'yield', 'dashboard', 'opportunities', 'migration', 'apy'],
+        keywords: ['optimize', 'yield', 'dashboard', 'opportunities', 'migration', 'apy', 'genie', 'summon', 'wish'],
         responses: [
-          "The Optimize (Dashboard) page analyzes your DeFi positions and recommends better yield opportunities. Our AI scores each opportunity from 0-100 based on APY gain, safety, costs, and timing!",
-          "Yield optimization finds you better APY across 200+ protocols. Each recommendation shows potential gains, migration costs, breakeven time, and step-by-step instructions.",
+          "Summon the Genie to analyze your treasures and discover better opportunities for prosperity! 🧞‍♂️ Each wish receives a magical score (0-100) based on potential gains, safety, costs, and divine timing!",
+          "The Genie's wisdom compares 200+ enchanted pools across mystical chains. Each recommendation reveals potential riches, migration costs, breakeven prophecies, and step-by-step incantations!",
         ]
       },
       'health': {
-        keywords: ['health score', 'health', 'score', 'rating'],
+        keywords: ['health score', 'health', 'score', 'rating', 'prosperity'],
         responses: [
-          "Your Portfolio Health Score (0-100) is calculated based on: Balance (25%), Activity (20%), Chain Diversity (15%), and Experience (15%). A score above 80 is excellent!",
-          "Health scores help you understand your portfolio quality. Higher scores mean better balance, more activity, chain diversification, and wallet maturity.",
+          "Your Prosperity Score (0-100) is divined from ancient formulas: Balance (25%), Activity (20%), Realm Diversity (15%), and Experience (15%). A score above 80 means the gods smile upon you! ✨",
+          "Prosperity scores reveal the strength of your fortune. Higher scores mean greater balance, more activity, diversification across realms, and the wisdom of experience!",
         ]
       },
       'testnet': {
         keywords: ['testnet', 'sepolia', 'test eth', 'faucet', 'test network'],
         responses: [
-          "YieldShift runs on Sepolia testnets (Ethereum, Base, Arbitrum). Get free test ETH from faucets - no real money needed! Check the Portfolio page for faucet links.",
-          "We use Sepolia testnet so you can test with real transactions safely. Visit sepoliafaucet.com, coinbase faucets, or faucet.arbitrum.io to get free test ETH!",
+          "LampFi operates in the enchanted Sepolia realms (Ethereum, Base, Arbitrum). Summon free test ETH from mystical faucets - no real gold needed! 🪙 Visit the Treasure Vault for faucet portals.",
+          "We use Sepolia testnet so you can practice magic safely with real incantations. Visit sepoliafaucet.com, coinbase faucets, or faucet.arbitrum.io for free test treasures!",
         ]
       },
       'transaction': {
-        keywords: ['transaction', 'tx', 'transfer', 'send', 'receive'],
+        keywords: ['transaction', 'tx', 'transfer', 'send', 'receive', 'ledger', 'history'],
         responses: [
-          "Your recent transactions are displayed on the Portfolio Overview page. You can filter by chain (All, Sepolia, Base Sepolia, Arbitrum Sepolia) and see transaction type, amount, and status.",
-          "Transactions show as Sent, Received, or Contract interactions. Each has a clickable hash that opens the blockchain explorer for details.",
+          "Your Magical Ledger chronicles all recent transactions! 📜 Filter by realm (All, Sepolia, Base Sepolia, Arbitrum Sepolia) and witness each transfer, amount, and mystical status.",
+          "Transactions appear as Sent, Received, or Contract Rituals. Each has a clickable rune that opens the realm's explorer for deeper divination!",
         ]
       },
       'safety': {
         keywords: ['safe', 'security', 'private key', 'wallet safety', 'secure'],
         responses: [
-          "YieldShift is 100% safe! We only request READ-ONLY access to view your positions. We NEVER ask for signatures, private keys, or access to your funds. Your assets are always secure.",
-          "Security is our priority. All operations are read-only, no smart contract approvals needed, and we never store your private information. You're always in full control!",
+          "LampFi is blessed with 100% safety! 🛡️ We only request READ-ONLY vision to peer into your treasures. We NEVER ask for signatures, private keys, or access to your riches. Your gold is eternally protected!",
+          "Security is our sacred oath. All operations are read-only, no contract approvals needed, and we never store your secrets. You remain the master of your lamp!",
         ]
       },
       'chains': {
-        keywords: ['chain', 'network', 'ethereum', 'base', 'arbitrum', 'multi-chain'],
+        keywords: ['chain', 'network', 'ethereum', 'base', 'arbitrum', 'multi-chain', 'realm'],
         responses: [
-          "YieldShift supports 3 testnet chains: Sepolia (Ethereum), Base Sepolia, and Arbitrum Sepolia. You can track balances and transactions across all of them in one dashboard!",
-          "Multi-chain support means you see all your activity across different networks in one place. No need to switch between explorers!",
+          "LampFi spans 3 enchanted realms: Sepolia Kingdom, Base Sepolia Empire, and Arbitrum Sepolia Domain. Track your treasures and transactions across all mystical lands in one magical dashboard! 🌍",
+          "Multi-realm support means you witness all your fortune across different kingdoms in one place. No need to travel between realm explorers!",
         ]
       },
       'connect': {
-        keywords: ['connect', 'wallet', 'metamask', 'connection'],
+        keywords: ['connect', 'wallet', 'metamask', 'connection', 'lamp', 'summon'],
         responses: [
-          "To connect your wallet: Click 'Connect Wallet' → Approve MetaMask connection → Switch to Sepolia testnet. That's it! We'll automatically detect your positions.",
-          "Make sure MetaMask is installed and you're on a Sepolia testnet. The connection is read-only and completely safe.",
+          "To summon your lamp: Click 'Summon Your Lamp' → Approve MetaMask ritual → Switch to Sepolia realm. That's it! 🪔 The Genie will automatically detect your treasures.",
+          "Ensure MetaMask is installed and you're in a Sepolia realm. The connection is read-only and blessed with protection magic!",
         ]
       },
       'demo': {
         keywords: ['demo', 'mock', 'test', 'example', 'try'],
         responses: [
-          "YieldShift works in demo mode (VITE_ENABLE_MOCK_DATA=true) with realistic sample data. Perfect for testing without connecting a wallet!",
-          "Demo mode shows 3 sample positions with migration opportunities. It's great for presentations and understanding how the app works!",
+          "LampFi works in mystical demo mode with enchanted sample data. Perfect for witnessing the magic without summoning your real lamp! ✨",
+          "Demo mode reveals 3 sample treasure positions with wish opportunities. It's perfect for understanding how the Genie grants prosperity!",
         ]
       },
       'image': {
         keywords: ['image', 'download', 'share', 'social', 'screenshot'],
         responses: [
-          "You can download a beautiful portfolio card image from the Portfolio Overview page! Click 'Download Image' to save and share your health score on social media.",
-          "Portfolio images show your health score, balance, transactions, and chain distribution. Perfect for Twitter, Discord, or Telegram!",
+          "You can conjure a beautiful prosperity card from the Treasure Vault! 🎴 Click 'Download Image' to capture and share your prosperity score across the social realms.",
+          "Prosperity images display your score, riches, wish history, and realm distribution. Perfect for Twitter, Discord, or Telegram! Share your fortune! ✨",
         ]
       },
     }
@@ -135,7 +135,7 @@ const Gennie = () => {
     }
 
     // Default response
-    return "I'm not sure about that! You can ask me about: Portfolio, Optimize/Yield, Health Score, Testnets, Transactions, Safety, Chains, or Connecting your wallet. How can I help? 😊";
+    return "Hmm, that wish is beyond my current powers! 🧞‍♂️ You can ask me about: Treasure Vault, Summoning the Genie, Prosperity Score, Mystical Realms, Magical Ledger, Safety Enchantments, or Connecting your Lamp. What knowledge do you seek? ✨";
   };
 
   // Handle sending message
@@ -172,10 +172,10 @@ const Gennie = () => {
 
   // Quick questions
   const quickQuestions = [
-    "How does Portfolio work?",
-    "How to get test ETH?",
-    "Is my wallet safe?",
-    "What's the health score?",
+    "How does Treasure Vault work?",
+    "How to get test treasures?",
+    "Is my lamp safe?",
+    "What's the prosperity score?",
   ];
 
   return (
@@ -184,8 +184,8 @@ const Gennie = () => {
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
         {/* Click counter hint - LEFT SIDE */}
         {clickCount > 0 && clickCount < 3 && !isOpen && (
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-xl animate-pulse">
-            {3 - clickCount} more {3 - clickCount === 1 ? 'click' : 'clicks'}! 🎯
+          <div className="bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-xl animate-pulse border border-lamp-gold-400/50">
+            {3 - clickCount} more {3 - clickCount === 1 ? 'rub' : 'rubs'}! 🪔✨
           </div>
         )}
 
@@ -195,10 +195,10 @@ const Gennie = () => {
             onClick={handleButtonClick}
             className={`w-16 h-16 rounded-full flex items-center justify-center text-4xl transition-all duration-300 hover:scale-110 border-4 ${
               clickCount > 0
-                ? 'border-purple-600 bg-white shadow-2xl shadow-purple-600/50 animate-pulse'
-                : 'border-blue-600 bg-white shadow-2xl shadow-blue-600/30 hover:shadow-blue-600/50'
+                ? 'border-lamp-gold-400 bg-gradient-to-br from-lamp-purple-600 to-lamp-magenta-600 shadow-2xl shadow-lamp-purple-600/70 animate-pulse'
+                : 'border-lamp-purple-500 bg-gradient-to-br from-lamp-night-800 to-lamp-purple-900 shadow-2xl shadow-lamp-purple-600/50 hover:shadow-lamp-gold-500/50'
             }`}
-            title={`Click ${3 - clickCount} more time${3 - clickCount !== 1 ? 's' : ''} to activate Gennie`}
+            title={`Rub the lamp ${3 - clickCount} more time${3 - clickCount !== 1 ? 's' : ''} to summon the Genie`}
           >
             🧞
           </button>
@@ -207,33 +207,34 @@ const Gennie = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col animate-fadeIn">
+        <div className="fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] h-[500px] bg-lamp-night-900 rounded-2xl shadow-2xl border-2 border-lamp-gold-400/50 z-50 flex flex-col animate-fadeIn">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-t-2xl flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-2xl">
+          <div className="bg-gradient-to-r from-lamp-purple-600 via-lamp-magenta-600 to-lamp-purple-600 text-white px-6 py-4 rounded-t-2xl flex items-center justify-between relative overflow-hidden">
+            <div className="absolute inset-0 bg-lamp-glow opacity-30"></div>
+            <div className="flex items-center gap-3 relative z-10">
+              <div className="w-10 h-10 bg-lamp-gold-500/30 rounded-full flex items-center justify-center text-2xl border-2 border-lamp-gold-400 animate-float">
                 🧞
               </div>
               <div>
-                <h3 className="font-bold text-lg">Gennie</h3>
-                <p className="text-xs text-blue-100">Your YieldShift Assistant</p>
+                <h3 className="font-bold text-lg">The Genie</h3>
+                <p className="text-xs text-lamp-gold-200">Your LampFi Guide ✨</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors flex items-center justify-center"
+              className="w-8 h-8 rounded-full bg-lamp-gold-500/20 hover:bg-lamp-gold-500/40 transition-colors flex items-center justify-center border border-lamp-gold-400/50 relative z-10"
             >
               ✕
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-lamp-night-800 to-lamp-night-900">
             {messages.length === 0 && (
               <div className="text-center py-8">
-                <div className="text-6xl mb-4">🧞</div>
-                <p className="text-gray-600 mb-4">Hi! I'm Gennie, your YieldShift assistant!</p>
-                <p className="text-sm text-gray-500">Ask me anything about the app</p>
+                <div className="text-6xl mb-4 animate-float">🧞</div>
+                <p className="text-lamp-purple-200 mb-4 font-semibold">Greetings, Aladdin!</p>
+                <p className="text-sm text-lamp-purple-300">I am the Genie. Ask me anything about LampFi! ✨</p>
               </div>
             )}
 
@@ -245,8 +246,8 @@ const Gennie = () => {
                 <div
                   className={`max-w-[80%] px-4 py-2 rounded-2xl ${
                     msg.type === 'user'
-                      ? 'bg-blue-600 text-white rounded-br-none'
-                      : 'bg-white border border-gray-200 text-gray-900 rounded-bl-none'
+                      ? 'bg-gradient-to-r from-lamp-gold-500 to-lamp-gold-600 text-lamp-night-950 rounded-br-none shadow-lg'
+                      : 'bg-lamp-night-800/80 border border-lamp-purple-500/30 text-lamp-purple-100 rounded-bl-none shadow-lg backdrop-blur-sm'
                   }`}
                 >
                   <p className="text-sm leading-relaxed">{msg.text}</p>
@@ -256,11 +257,11 @@ const Gennie = () => {
 
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-white border border-gray-200 px-4 py-2 rounded-2xl rounded-bl-none">
+                <div className="bg-lamp-night-800/80 border border-lamp-purple-500/30 px-4 py-2 rounded-2xl rounded-bl-none backdrop-blur-sm">
                   <div className="flex gap-1">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
-                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                    <span className="w-2 h-2 bg-lamp-gold-400 rounded-full animate-bounce"></span>
+                    <span className="w-2 h-2 bg-lamp-magenta-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
+                    <span className="w-2 h-2 bg-lamp-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
                   </div>
                 </div>
               </div>
@@ -271,8 +272,8 @@ const Gennie = () => {
 
           {/* Quick Questions */}
           {messages.length <= 1 && (
-            <div className="px-4 py-2 border-t border-gray-200 bg-white">
-              <p className="text-xs text-gray-500 mb-2">Quick questions:</p>
+            <div className="px-4 py-2 border-t border-lamp-purple-500/30 bg-lamp-night-900">
+              <p className="text-xs text-lamp-gold-400 mb-2">✨ Quick wishes:</p>
               <div className="flex flex-wrap gap-2">
                 {quickQuestions.map((q, idx) => (
                   <button
@@ -281,7 +282,7 @@ const Gennie = () => {
                       setInputValue(q);
                       setTimeout(() => handleSend(), 100);
                     }}
-                    className="text-xs px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                    className="text-xs px-3 py-1 bg-lamp-night-800 hover:bg-lamp-purple-800 text-lamp-purple-200 hover:text-lamp-gold-300 rounded-full transition-colors border border-lamp-purple-500/30"
                   >
                     {q}
                   </button>
@@ -291,22 +292,22 @@ const Gennie = () => {
           )}
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-200 bg-white rounded-b-2xl">
+          <div className="p-4 border-t border-lamp-purple-500/30 bg-lamp-night-900 rounded-b-2xl">
             <div className="flex gap-2">
               <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask me anything..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Make a wish... ✨"
+                className="flex-1 px-4 py-2 border border-lamp-purple-500/30 bg-lamp-night-800 text-lamp-purple-100 placeholder-lamp-purple-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-lamp-gold-500 focus:border-lamp-gold-400"
               />
               <button
                 onClick={handleSend}
                 disabled={!inputValue.trim()}
-                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                className="px-4 py-2 bg-gradient-to-r from-lamp-gold-500 to-lamp-gold-600 hover:from-lamp-gold-400 hover:to-lamp-gold-500 text-lamp-night-950 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed font-bold shadow-lg"
               >
-                Send
+                Grant
               </button>
             </div>
           </div>

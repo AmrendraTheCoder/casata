@@ -1,21 +1,21 @@
 import { formatCurrency } from '../utils/constants';
 
 const AlertBanner = ({ underperformingCount, totalPotentialGain, healthScore }) => {
-  // If health score is 100 (perfect), show optimized message
+  // If health score is 100 (perfect), show blessed message
   if (healthScore === 100 || underperformingCount === 0) {
     return (
-      <div className="card-premium bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 mb-8 slide-up">
+      <div className="card-premium bg-gradient-to-r from-lamp-teal-900/40 to-lamp-teal-800/40 border-2 border-lamp-teal-400/50 mb-8 slide-up">
         <div className="flex items-center gap-4">
-          <div className="flex-shrink-0 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-md">
-            ✓
+          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-lamp-teal-500 to-lamp-teal-600 rounded-full flex items-center justify-center text-2xl shadow-lg animate-pulse">
+            ✨
           </div>
           <div className="flex-1">
-            <p className="font-bold text-green-700 text-lg mb-1">Portfolio Optimized</p>
-            <p className="text-sm text-green-600">
-              Your portfolio health is {healthScore}/100. All positions are performing well. We'll notify you when better opportunities appear.
+            <p className="font-bold text-lamp-teal-300 text-lg mb-1">Vault Fully Blessed</p>
+            <p className="text-sm text-lamp-teal-200">
+              Your prosperity score is {healthScore}/100. All treasures are blessed with optimal yields. The Genie will alert you when new wishes appear. 🧞
             </p>
           </div>
-          <div className="text-4xl">🎉</div>
+          <div className="text-4xl animate-sparkle">🎉</div>
         </div>
       </div>
     );
@@ -27,41 +27,41 @@ const AlertBanner = ({ underperformingCount, totalPotentialGain, healthScore }) 
   }
 
   return (
-    <div className="card-premium bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 mb-8 slide-up">
+    <div className="card-premium bg-gradient-to-r from-lamp-purple-900/40 to-lamp-magenta-900/40 border-2 border-lamp-magenta-400/50 mb-8 slide-up">
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-2xl shadow-md">
-            💡
+          <div className="w-12 h-12 bg-gradient-to-br from-lamp-magenta-500 to-lamp-purple-600 rounded-full flex items-center justify-center text-2xl shadow-lg animate-glow">
+            🧞
           </div>
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <p className="font-extrabold text-gray-900 text-xl">
-              {underperformingCount} Opportunity{underperformingCount > 1 ? 's' : ''} Found
+            <p className="font-extrabold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent text-xl">
+              {underperformingCount} Wish{underperformingCount > 1 ? 'es' : ''} Available
             </p>
-            <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-sm">
-              ACT NOW
+            <span className="px-3 py-1 bg-gradient-to-r from-lamp-gold-500 to-lamp-gold-600 text-lamp-night-950 text-xs font-bold rounded-full shadow-lg animate-pulse">
+              GRANT NOW
             </span>
           </div>
-          <p className="text-base text-gray-700 mb-3">
-            You could earn an extra <span className="font-extrabold text-green-600 text-lg">{formatCurrency(totalPotentialGain)}</span> per year by migrating to higher-yield protocols.
+          <p className="text-base text-lamp-purple-200 mb-3">
+            The Genie can grant you an extra <span className="font-extrabold text-lamp-teal-400 text-lg">{formatCurrency(totalPotentialGain)}</span> per year by migrating to enchanted pools with higher blessings. ✨
           </p>
           <div className="flex items-center gap-4 text-sm">
-            <div className="flex items-center gap-2 text-gray-600">
-              <span className="text-green-600">✓</span>
-              <span>Verified safe protocols</span>
+            <div className="flex items-center gap-2 text-lamp-purple-300">
+              <span className="text-lamp-teal-400">✓</span>
+              <span>Blessed safe protocols</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
-              <span className="text-green-600">✓</span>
-              <span>Clear cost breakdowns</span>
+            <div className="flex items-center gap-2 text-lamp-purple-300">
+              <span className="text-lamp-teal-400">✓</span>
+              <span>Clear cost prophecies</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
-              <span className="text-green-600">✓</span>
-              <span>Step-by-step guides</span>
+            <div className="flex items-center gap-2 text-lamp-purple-300">
+              <span className="text-lamp-teal-400">✓</span>
+              <span>Mystical incantations</span>
             </div>
           </div>
         </div>
-        <div className="flex-shrink-0 text-4xl">🚀</div>
+        <div className="flex-shrink-0 text-4xl animate-float">🪔</div>
       </div>
     </div>
   );

@@ -156,14 +156,14 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl">
+    <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-lamp-night-900/95 backdrop-blur-xl rounded-2xl max-w-md w-full p-6 shadow-2xl border border-lamp-purple-500/30">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Send Transaction</h2>
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">🪔 Mystical Transfer</h2>
           <button
             onClick={handleClose}
-            className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+            className="text-lamp-gold-400 hover:text-lamp-gold-300 text-2xl leading-none"
           >
             ×
           </button>
@@ -171,12 +171,12 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
 
         {/* Success State */}
         {isSuccess && (
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <div className="mb-6 p-4 bg-lamp-teal-900/40 border border-lamp-teal-500/30 rounded-xl">
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">✅</span>
+              <span className="text-2xl">✨</span>
               <div>
-                <div className="font-semibold text-green-900">Transaction Successful!</div>
-                <div className="text-sm text-green-700">Your portfolio will update shortly</div>
+                <div className="font-semibold text-lamp-teal-300">Transfer Complete!</div>
+                <div className="text-sm text-lamp-purple-200">Your treasure vault will update shortly</div>
               </div>
             </div>
             {hash && (
@@ -184,9 +184,9 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
                 href={`${chains[selectedChain].explorer}/tx/${hash}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-green-600 hover:text-green-700 underline block mt-2"
+                className="text-sm text-lamp-magenta-400 hover:text-lamp-magenta-300 underline block mt-2"
               >
-                View on Explorer →
+                View on Mystical Explorer →
               </a>
             )}
           </div>
@@ -194,12 +194,12 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
 
         {/* Error State */}
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+          <div className="mb-6 p-4 bg-lamp-rose-900/40 border border-lamp-rose-500/30 rounded-xl">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">❌</span>
+              <span className="text-2xl">⚠️</span>
               <div>
-                <div className="font-semibold text-red-900">Transaction Failed</div>
-                <div className="text-sm text-red-700">{error.message}</div>
+                <div className="font-semibold text-lamp-rose-300">Transfer Mystically Blocked</div>
+                <div className="text-sm text-lamp-purple-200">{error.message}</div>
               </div>
             </div>
           </div>
@@ -209,8 +209,8 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Chain Selection */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Select Chain
+            <label className="block text-sm font-semibold text-lamp-gold-400 mb-2">
+              Select Mystical Realm
             </label>
             <div className="grid grid-cols-3 gap-2">
               {Object.entries(chains).map(([key, chain]) => (
@@ -220,12 +220,12 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
                   onClick={() => setSelectedChain(key)}
                   className={`p-3 rounded-xl border-2 transition-all ${
                     selectedChain === key
-                      ? 'border-blue-600 bg-blue-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      ? 'border-lamp-magenta-500 bg-gradient-to-br from-lamp-purple-900/60 to-lamp-magenta-900/60'
+                      : 'border-lamp-purple-500/30 bg-lamp-night-800/50 hover:border-lamp-gold-400/50'
                   }`}
                 >
                   <div className="text-2xl mb-1">{chain.emoji}</div>
-                  <div className="text-xs font-semibold text-gray-700">{chain.name}</div>
+                  <div className="text-xs font-semibold text-lamp-purple-200">{chain.name}</div>
                 </button>
               ))}
             </div>
@@ -233,23 +233,23 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
 
           {/* Recipient Address */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Recipient Address
+            <label className="block text-sm font-semibold text-lamp-gold-400 mb-2">
+              Recipient Lamp Address
             </label>
             <input
               type="text"
               value={recipient}
               onChange={(e) => setRecipient(e.target.value)}
               placeholder="0x..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+              className="w-full px-4 py-3 bg-lamp-night-800/50 border border-lamp-purple-500/30 rounded-xl focus:ring-2 focus:ring-lamp-magenta-500 focus:border-lamp-magenta-500 font-mono text-sm text-lamp-purple-100 placeholder-lamp-purple-400"
               disabled={isPending || isConfirming}
             />
           </div>
 
           {/* Amount */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Amount (ETH)
+            <label className="block text-sm font-semibold text-lamp-gold-400 mb-2">
+              Mystical Amount (ETH)
             </label>
             <input
               type="number"
@@ -257,14 +257,14 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               placeholder="0.01"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-lamp-night-800/50 border border-lamp-purple-500/30 rounded-xl focus:ring-2 focus:ring-lamp-magenta-500 focus:border-lamp-magenta-500 text-lamp-purple-100 placeholder-lamp-purple-400"
               disabled={isPending || isConfirming}
             />
             <div className="mt-2 flex gap-2">
               <button
                 type="button"
                 onClick={() => setAmount('0.001')}
-                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-semibold text-gray-700"
+                className="px-3 py-1 bg-lamp-night-800/60 hover:bg-lamp-night-700/60 border border-lamp-purple-500/30 rounded-lg text-xs font-semibold text-lamp-purple-200"
                 disabled={isPending || isConfirming}
               >
                 0.001
@@ -272,7 +272,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
               <button
                 type="button"
                 onClick={() => setAmount('0.01')}
-                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-semibold text-gray-700"
+                className="px-3 py-1 bg-lamp-night-800/60 hover:bg-lamp-night-700/60 border border-lamp-purple-500/30 rounded-lg text-xs font-semibold text-lamp-purple-200"
                 disabled={isPending || isConfirming}
               >
                 0.01
@@ -280,7 +280,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
               <button
                 type="button"
                 onClick={() => setAmount('0.1')}
-                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-semibold text-gray-700"
+                className="px-3 py-1 bg-lamp-night-800/60 hover:bg-lamp-night-700/60 border border-lamp-purple-500/30 rounded-lg text-xs font-semibold text-lamp-purple-200"
                 disabled={isPending || isConfirming}
               >
                 0.1
@@ -290,12 +290,12 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
 
           {/* Transaction Info */}
           {hash && isConfirming && (
-            <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
+            <div className="p-4 bg-lamp-purple-900/40 border border-lamp-purple-500/30 rounded-xl">
               <div className="flex items-center gap-3">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-lamp-purple-500"></div>
                 <div>
-                  <div className="font-semibold text-blue-900">Confirming Transaction...</div>
-                  <div className="text-sm text-blue-700">Please wait for confirmation</div>
+                  <div className="font-semibold text-lamp-purple-200">Confirming Mystical Transfer...</div>
+                  <div className="text-sm text-lamp-purple-300">The Genie is processing your wish</div>
                 </div>
               </div>
             </div>
@@ -306,7 +306,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
             <button
               type="button"
               onClick={handleClose}
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-50 transition-all"
+              className="flex-1 px-4 py-3 bg-lamp-night-800/60 border border-lamp-purple-500/30 rounded-xl font-semibold text-lamp-purple-200 hover:bg-lamp-night-700/60 hover:border-lamp-gold-400/50 transition-all"
               disabled={isPending || isConfirming}
             >
               Cancel
@@ -314,31 +314,31 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
             <button
               type="submit"
               disabled={isPending || isConfirming || isSuccess}
-              className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all disabled:bg-gray-300 disabled:cursor-not-allowed"
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-lamp-purple-600 to-lamp-magenta-600 text-white rounded-xl font-semibold hover:from-lamp-purple-500 hover:to-lamp-magenta-500 transition-all disabled:from-lamp-night-700 disabled:to-lamp-night-700 disabled:cursor-not-allowed"
             >
-              {isPending ? 'Confirming...' : isConfirming ? 'Processing...' : isSuccess ? 'Success!' : 'Send Transaction'}
+              {isPending ? 'Confirming...' : isConfirming ? 'Processing...' : isSuccess ? 'Success!' : 'Grant Transfer'}
             </button>
           </div>
         </form>
 
         {/* Info */}
-        <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-          <div className="text-xs text-gray-600 space-y-1">
+        <div className="mt-6 p-4 bg-lamp-night-800/60 border border-lamp-purple-500/30 rounded-xl">
+          <div className="text-xs text-lamp-purple-200 space-y-1">
             <div className="flex items-center gap-2">
-              <span>💡</span>
-              <span>This will send test ETH on {chains[selectedChain].name}</span>
+              <span>🪔</span>
+              <span>This will send test ETH in {chains[selectedChain].name} mystical realm</span>
             </div>
             <div className="flex items-center gap-2">
               <span>🔄</span>
-              <span>MetaMask will switch to the selected network automatically</span>
+              <span>MetaMask will switch to the selected realm automatically</span>
             </div>
             <div className="flex items-center gap-2">
               <span>🔒</span>
-              <span>You'll need to approve the network switch and transaction</span>
+              <span>You'll need to approve the realm switch and transfer</span>
             </div>
             <div className="flex items-center gap-2">
-              <span>⚡</span>
-              <span>Portfolio updates in ~5 seconds after confirmation</span>
+              <span>✨</span>
+              <span>Treasure vault updates in ~5 seconds after confirmation</span>
             </div>
           </div>
         </div>
