@@ -55,7 +55,7 @@ const Router = () => {
             href="#home"
             className="flex items-center gap-2 transition-all duration-300 hover:scale-105"
           >
-            <span className="text-3xl animate-float">🪔</span>
+            {/* <span className="text-3xl animate-float">🪔</span> */}
             <span className="text-xl font-bold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">
               LampFi
             </span>
@@ -184,22 +184,21 @@ const Router = () => {
                 </div>
 
                 {/* Lamp Image Container */}
-                <div className="relative mb-8 flex justify-center">
+                {/* <div className="relative mb-8 flex justify-center">
                   <div className="relative">
-                    {/* Glow effect behind lamp */}
                     <div className="absolute inset-0 bg-lamp-glow blur-3xl animate-glow"></div>
-                    {/* Lamp placeholder - User will add their image here */}
+
                     <div className="relative w-64 h-64 mx-auto">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="text-9xl animate-float">🪔</span>
                       </div>
-                      {/* Sparkles around lamp */}
+
                       <span className="absolute top-0 right-0 text-3xl animate-sparkle">✨</span>
                       <span className="absolute top-10 left-0 text-2xl animate-sparkle" style={{ animationDelay: '0.5s' }}>✨</span>
                       <span className="absolute bottom-10 right-10 text-2xl animate-sparkle" style={{ animationDelay: '1s' }}>✨</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Hero Headline - Magical Style */}
                 <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6 leading-none">
@@ -211,7 +210,7 @@ const Router = () => {
                 </h1>
 
                 <p className="text-xl md:text-2xl text-lamp-purple-200 font-light mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Summon the Genie to unlock prosperity. AI-powered magic finds you 30-40% better yields across 200+ protocols in 3 seconds. ✨
+                  Summon the Genie to unlock prosperity. AI-powered magic finds you 30-40% better yields in 3 seconds. ✨
                 </p>
 
                 {/* CTA */}
@@ -388,7 +387,7 @@ const Router = () => {
                 <div className="grid md:grid-cols-3 gap-8 mb-8">
                   <div>
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="text-2xl">🪔</span>
+                      {/* <span className="text-2xl">🪔</span> */}
                       <h3 className="font-bold text-xl bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent">
                         LampFi
                       </h3>

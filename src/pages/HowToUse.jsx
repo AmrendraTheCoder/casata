@@ -88,11 +88,11 @@ const HowToUse = () => {
         {/* Introduction */}
       <div className="bg-gradient-to-br from-lamp-purple-900/40 to-lamp-magenta-900/40 border border-lamp-purple-500/30 rounded-xl p-8 mb-8 text-center">
           <h2 className="text-3xl font-extrabold bg-gradient-to-r from-lamp-gold-400 to-lamp-gold-500 bg-clip-text text-transparent mb-4">
-            Welcome to LampFi! 🪔
+            Welcome to LampFi! 
           </h2>
           <p className="text-lg text-lamp-purple-200 leading-relaxed max-w-3xl mx-auto">
             LampFi is your mystical companion for maximizing DeFi prosperity.
-            The Genie analyzes your treasures across 200+ protocols and reveals the best
+            The Genie analyzes your treasures and reveals the best
             wishes to increase your blessings while protecting your vault.
           </p>
         </div>
