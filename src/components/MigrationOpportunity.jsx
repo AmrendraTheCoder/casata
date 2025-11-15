@@ -1,7 +1,13 @@
 import { formatCurrency, formatPercentage, getScoreColor, getScoreLabel } from '../utils/constants';
 
-const MigrationOpportunity = ({ opportunity, onClose }) => {
+const MigrationOpportunity = ({ opportunity, onClose, onSave }) => {
   if (!opportunity) return null;
+  
+  const handleSave = () => {
+    if (onSave) {
+      onSave(opportunity);
+    }
+  };
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn" onClick={onClose}>
@@ -114,8 +120,12 @@ const MigrationOpportunity = ({ opportunity, onClose }) => {
 
           {/* Buttons */}
           <div className="flex gap-2 mb-3">
-            <button className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
-              Save
+            <button 
+              onClick={handleSave}
+              className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm flex items-center justify-center gap-2"
+            >
+              <span>💾</span>
+              Save for Later
             </button>
             <button
               onClick={onClose}

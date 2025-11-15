@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchAllBalances, isAlchemyConfigured } from '../services/alchemy';
+import { fetchAllBalances, isAlchemyConfigured, fetchAllTransactions } from '../services/alchemy';
 import { getProtocolAPY, mapChainName } from '../services/defiLlama';
 import { MOCK_POSITIONS, shouldUseMockData } from '../utils/mockData';
 import { determinePositionStatus } from '../utils/calculations';
@@ -11,50 +11,65 @@ const fetchPositions = async (address) => {
   }
 
   // Check if we should use mock data
-  if (shouldUseMockData() || !isAlchemyConfigured()) {
-    console.log('Using mock positions data');
+  if (shouldUseMockData()) {
+    console.log('📊 Dashboard: Using mock positions data');
     return MOCK_POSITIONS;
   }
 
   try {
-    // Fetch balances from Alchemy
-    const balances = await fetchAllBalances(address);
+    console.log('🔍 Dashboard: Fetching positions from unified portfolio service...');
+    console.log('   Wallet address:', address);
     
-    // Convert balances to positions format
-    const positions = [];
-    let positionId = 1;
-
-    for (const [chainName, chainBalances] of Object.entries(balances)) {
-      for (const balance of chainBalances) {
-        if (balance.balance > 0) {
-          // Fetch current APY for this position
-          // Assume lending protocol (Aave) for simplicity
-          const apyData = await getProtocolAPY('aave-v3', chainName, balance.symbol);
-          
-          positions.push({
-            id: String(positionId++),
-            protocol: 'Aave V3', // Default assumption
-            protocolLogo: '🏦',
-            chain: chainName.charAt(0).toUpperCase() + chainName.slice(1),
-            chainId: balance.chainId,
-            asset: balance.symbol,
-            assetLogo: getAssetLogo(balance.symbol),
-            amount: balance.balance,
-            currentApy: apyData?.apy || 0,
-            status: 'optimal', // Will be updated after opportunities are found
-            daysDeployed: 0, // Would need historical data
-            totalEarned: 0 // Would need historical data
-          });
-        }
-      }
+    // Use unified portfolio service
+    const { fetchPortfolioData, isDataServiceConfigured } = await import('../services/portfolioData');
+    
+    if (!isDataServiceConfigured()) {
+      console.log('⚠️  Dashboard: Data service not configured, using mock data');
+      return MOCK_POSITIONS;
+    }
+    
+    const portfolioData = await fetchPortfolioData(address);
+    
+    console.log('✅ Dashboard: Portfolio data fetched:', {
+      positions: portfolioData.positions.length,
+      totalBalance: portfolioData.totalBalanceETH,
+      healthScore: portfolioData.healthScore
+    });
+    
+    // If no positions found, return mock data for demo
+    if (portfolioData.positions.length === 0) {
+      console.log('⚠️  Dashboard: No positions found, using mock data');
+      return MOCK_POSITIONS;
     }
 
-    return positions;
+    return portfolioData.positions;
   } catch (error) {
-    console.error('Error fetching positions:', error);
+    console.error('❌ Dashboard: Error fetching positions:', error);
     // Fall back to mock data on error
+    console.log('⚠️  Dashboard: Falling back to mock data');
     return MOCK_POSITIONS;
   }
+};
+
+// Format chain name for display
+const formatChainName = (chainName) => {
+  const nameMap = {
+    'sepolia': 'Sepolia',
+    'base sepolia': 'Base Sepolia',
+    'arbitrum sepolia': 'Arbitrum Sepolia'
+  };
+  return nameMap[chainName.toLowerCase()] || chainName;
+};
+
+// Get default APY for assets when DefiLlama data is unavailable
+const getDefaultAPY = (symbol) => {
+  const defaultAPYs = {
+    'ETH': 3.5,
+    'USDC': 8.0,
+    'USDT': 7.5,
+    'DAI': 7.0
+  };
+  return defaultAPYs[symbol] || 5.0;
 };
 
 // Hook to use positions

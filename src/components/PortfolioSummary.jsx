@@ -1,19 +1,25 @@
 import { formatCurrency, formatPercentage } from '../utils/constants';
-import { calculateAnnualYield, calculatePortfolioHealth } from '../utils/calculations';
+import { calculateAnnualYield } from '../utils/calculations';
 
-const PortfolioSummary = ({ positions, opportunities }) => {
+const PortfolioSummary = ({ positions, opportunities, healthScore: providedHealthScore }) => {
+  // ETH price (could be fetched from API in production)
+  const ETH_PRICE = 2000; // USD
+  
   // Calculate total value
   const totalValue = positions.reduce((sum, pos) => {
-    if (pos.asset === 'ETH') {
-      // Assume ETH price for calculation (in real app, fetch from API)
-      return sum + (pos.amount * 2000); // Placeholder price
+    if (pos.asset === 'ETH' || pos.asset === 'WETH') {
+      return sum + (pos.amount * ETH_PRICE);
     }
+    // For stablecoins (USDC, USDT, DAI), assume 1:1 with USD
     return sum + pos.amount;
   }, 0);
 
-  // Calculate current yield
+  // Calculate current yield (in USD)
   const currentYield = positions.reduce((sum, pos) => {
-    return sum + calculateAnnualYield(pos.amount, pos.currentApy);
+    const positionValue = (pos.asset === 'ETH' || pos.asset === 'WETH') 
+      ? pos.amount * ETH_PRICE 
+      : pos.amount;
+    return sum + calculateAnnualYield(positionValue, pos.currentApy);
   }, 0);
 
   // Calculate potential yield
@@ -21,8 +27,8 @@ const PortfolioSummary = ({ positions, opportunities }) => {
     return sum + (opp.annualGain || 0);
   }, 0);
 
-  // Calculate health score
-  const healthScore = calculatePortfolioHealth(positions, opportunities);
+  // Use provided health score from unified portfolio data, or calculate fallback
+  const healthScore = providedHealthScore !== undefined ? providedHealthScore : 100;
 
   const getHealthColor = (score) => {
     if (score >= 80) return 'text-green-600';

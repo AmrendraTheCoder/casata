@@ -86,6 +86,10 @@ export const getTransactionHistory = async (
     const chainConfig = CHAIN_APIS[chain];
     const apiKey = API_KEYS[chain];
 
+    console.log(`📡 Fetching transactions for ${chainConfig.name}...`);
+    console.log(`   Address: ${address}`);
+    console.log(`   API: ${chainConfig.url}`);
+
     const response = await axios.get(chainConfig.url, {
       params: {
         module: "account",
@@ -100,8 +104,14 @@ export const getTransactionHistory = async (
       },
     });
 
+    console.log(`📊 ${chainConfig.name} API Response:`, {
+      status: response.data.status,
+      message: response.data.message,
+      resultCount: response.data.result?.length || 0
+    });
+
     if (response.data.status === "1" && response.data.result) {
-      return response.data.result.map((tx) => ({
+      const transactions = response.data.result.map((tx) => ({
         hash: tx.hash,
         from: tx.from,
         to: tx.to,
@@ -111,25 +121,71 @@ export const getTransactionHistory = async (
         isError: tx.isError === "1",
         gasUsed: tx.gasUsed,
         gasPrice: tx.gasPrice,
+        input: tx.input,
         chain: chainConfig.name,
         chainId: chainConfig.chainId,
         type: determineTransactionType(tx, address),
         explorerUrl: `${chainConfig.explorer}/tx/${tx.hash}`,
       }));
+      
+      console.log(`✅ Found ${transactions.length} transactions on ${chainConfig.name}`);
+      if (transactions.length > 0) {
+        console.log(`   Latest tx: ${transactions[0].hash.substring(0, 10)}... (${transactions[0].type})`);
+      }
+      
+      return transactions;
     }
 
+    console.log(`⚠️  No transactions found on ${chainConfig.name}`);
     return [];
   } catch (error) {
-    console.error(`Error fetching transactions for ${chain}:`, error);
+    console.error(`❌ Error fetching transactions for ${chain}:`, error.message);
     return [];
   }
 };
 
 /**
  * Fetch balances from all supported chains
+ * Now uses Alchemy API for real-time data
  */
 export const getMultiChainBalances = async (address) => {
   try {
+    // Try to use Alchemy API first
+    const { fetchAllBalances, isAlchemyConfigured } = await import('./alchemy');
+    
+    if (isAlchemyConfigured()) {
+      console.log('Using Alchemy API for balance data');
+      const alchemyBalances = await fetchAllBalances(address);
+      
+      // Transform Alchemy data to match expected format
+      const chains = [
+        { id: 11155111, name: 'Sepolia', key: 'sepolia' },
+        { id: 84532, name: 'Base Sepolia', key: 'base sepolia' },
+        { id: 421614, name: 'Arbitrum Sepolia', key: 'arbitrum sepolia' }
+      ];
+      
+      const balances = chains.map(chain => {
+        const chainBalances = alchemyBalances[chain.key] || [];
+        const ethBalance = chainBalances.find(b => b.symbol === 'ETH');
+        
+        return {
+          balance: ethBalance ? ethBalance.balance : 0,
+          chain: chain.name,
+          symbol: 'ETH'
+        };
+      });
+      
+      const totalBalance = balances.reduce((sum, b) => sum + b.balance, 0);
+      
+      return {
+        balances,
+        totalBalance,
+        chains: balances.length,
+      };
+    }
+    
+    // Fallback to Etherscan API
+    console.log('Falling back to Etherscan API for balance data');
     const chains = ["sepolia", "baseSepolia", "arbitrumSepolia"];
     const balancePromises = chains.map((chain) =>
       getWalletBalance(address, chain)
@@ -161,6 +217,7 @@ export const getMultiChainTransactions = async (
   limitPerChain = 20
 ) => {
   try {
+    console.log(`🔍 Fetching transactions from all chains for ${address}`);
     const chains = ["sepolia", "baseSepolia", "arbitrumSepolia"];
     const txPromises = chains.map((chain) =>
       getTransactionHistory(address, chain, limitPerChain)
@@ -173,9 +230,15 @@ export const getMultiChainTransactions = async (
       .sort((a, b) => b.timestamp - a.timestamp)
       .slice(0, limitPerChain); // Get latest 20 across all chains
 
+    console.log(`✅ Total transactions found across all chains: ${transactions.length}`);
+    if (transactions.length > 0) {
+      console.log(`   Most recent: ${transactions[0].hash} on ${transactions[0].chain}`);
+      console.log(`   Time: ${new Date(transactions[0].timestamp).toLocaleString()}`);
+    }
+
     return transactions;
   } catch (error) {
-    console.error("Error fetching multi-chain transactions:", error);
+    console.error("❌ Error fetching multi-chain transactions:", error);
     return [];
   }
 };
@@ -285,34 +348,96 @@ export const formatTxHash = (hash) => {
 
 /**
  * Calculate portfolio health score
+ * Advanced algorithm considering multiple factors
  */
 export const calculatePortfolioHealth = (stats) => {
   if (!stats) return 0;
 
-  let score = 50; // Base score
+  let score = 0;
+  const weights = {
+    balance: 30,      // Weight for balance factor
+    activity: 25,     // Weight for activity factor
+    diversity: 20,    // Weight for diversification
+    experience: 15,   // Weight for wallet age
+    efficiency: 10    // Weight for gas efficiency
+  };
 
-  // Balance factor (0-25 points)
-  if (stats.totalBalance > 10) score += 25;
-  else if (stats.totalBalance > 1) score += 15;
-  else if (stats.totalBalance > 0.1) score += 10;
-  else score += 5;
+  // 1. Balance Factor (0-30 points) - Logarithmic scale for fairness
+  let balanceScore = 0;
+  if (stats.totalBalance > 0) {
+    // Use logarithmic scale: log10(balance * 10 + 1) normalized to 0-1
+    const balanceNormalized = Math.min(1, Math.log10(stats.totalBalance * 10 + 1) / 2);
+    balanceScore = balanceNormalized * weights.balance;
+  }
+  score += balanceScore;
 
-  // Activity factor (0-20 points)
-  if (stats.activityLevel === "high") score += 20;
-  else if (stats.activityLevel === "medium") score += 12;
-  else score += 5;
+  // 2. Activity Factor (0-25 points) - Based on transaction frequency
+  let activityScore = 0;
+  if (stats.totalTransactions > 0) {
+    // Recent activity is more important
+    const recentActivityRatio = stats.recentActivity / Math.max(1, stats.totalTransactions);
+    const totalTxScore = Math.min(1, stats.totalTransactions / 50); // Normalize to 50 tx
+    
+    // Combine recent activity (60%) and total activity (40%)
+    activityScore = (recentActivityRatio * 0.6 + totalTxScore * 0.4) * weights.activity;
+  }
+  score += activityScore;
 
-  // Diversification factor (0-15 points)
+  // 3. Diversification Factor (0-20 points) - Multi-chain presence
+  let diversityScore = 0;
   const activeChains = stats.balanceByChain.filter((b) => b.balance > 0).length;
-  score += activeChains * 5;
+  const maxChains = stats.balanceByChain.length;
+  
+  if (activeChains > 0) {
+    // Balance distribution across chains (Gini coefficient approach)
+    const totalBalance = stats.totalBalance;
+    const balanceVariance = stats.balanceByChain.reduce((variance, chain) => {
+      const proportion = chain.balance / totalBalance;
+      return variance + Math.pow(proportion - 1/activeChains, 2);
+    }, 0);
+    
+    // Lower variance = better distribution
+    const distributionScore = 1 - Math.min(1, balanceVariance);
+    const chainCoverageScore = activeChains / maxChains;
+    
+    // Combine distribution (60%) and coverage (40%)
+    diversityScore = (distributionScore * 0.6 + chainCoverageScore * 0.4) * weights.diversity;
+  }
+  score += diversityScore;
 
-  // Experience factor (0-15 points)
-  if (stats.walletAge > 365) score += 15; // 1+ year
-  else if (stats.walletAge > 180) score += 10; // 6+ months
-  else if (stats.walletAge > 90) score += 7; // 3+ months
-  else score += 3;
+  // 4. Experience Factor (0-15 points) - Wallet age and contract interactions
+  let experienceScore = 0;
+  if (stats.walletAge > 0) {
+    // Wallet age score (logarithmic to avoid penalizing new wallets too much)
+    const ageScore = Math.min(1, Math.log10(stats.walletAge + 1) / Math.log10(365));
+    
+    // Contract interaction score
+    const contractScore = Math.min(1, stats.contractInteractions / 20);
+    
+    // Combine age (50%) and contract interactions (50%)
+    experienceScore = (ageScore * 0.5 + contractScore * 0.5) * weights.experience;
+  }
+  score += experienceScore;
 
-  return Math.min(100, Math.max(0, score));
+  // 5. Gas Efficiency Factor (0-10 points) - How well they manage gas
+  let efficiencyScore = 0;
+  if (stats.totalTransactions > 0 && stats.totalBalance > 0) {
+    // Gas spent per transaction (lower is better)
+    const gasPerTx = stats.totalGasSpent / stats.totalTransactions;
+    
+    // Gas as percentage of balance (lower is better)
+    const gasToBalanceRatio = stats.totalGasSpent / stats.totalBalance;
+    
+    // Efficient if gas per tx < 0.001 ETH and gas < 5% of balance
+    const txEfficiency = Math.max(0, 1 - gasPerTx / 0.001);
+    const balanceEfficiency = Math.max(0, 1 - gasToBalanceRatio / 0.05);
+    
+    efficiencyScore = (txEfficiency * 0.5 + balanceEfficiency * 0.5) * weights.efficiency;
+  }
+  score += efficiencyScore;
+
+  // Round to nearest integer and ensure within bounds
+  return Math.round(Math.min(100, Math.max(0, score)));
 };
 
 /**

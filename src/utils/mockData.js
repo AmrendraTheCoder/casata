@@ -1,163 +1,87 @@
-// Mock positions for demo - College Student Profile
+// Mock positions for demo - Testnet Profile
 export const MOCK_POSITIONS = [
   {
     id: '1',
-    protocol: 'Aave V3',
-    protocolLogo: '🏦',
-    chain: 'Ethereum',
-    chainId: 1,
-    asset: 'USDC',
-    assetLogo: '💵',
-    amount: 450,
-    currentApy: 8.1,
-    status: 'underperforming',
-    daysDeployed: 35,
-    totalEarned: 3.52
+    protocol: 'Testnet Position',
+    protocolLogo: '🧪',
+    chain: 'Sepolia',
+    chainId: 11155111,
+    asset: 'ETH',
+    assetLogo: '⟠',
+    amount: 0.5,
+    currentApy: 3.5,
+    status: 'optimal',
+    daysDeployed: 45,
+    totalEarned: 0.0216
   },
   {
     id: '2',
-    protocol: 'Lido',
-    protocolLogo: '🔷',
-    chain: 'Ethereum',
-    chainId: 1,
+    protocol: 'Testnet Position',
+    protocolLogo: '🧪',
+    chain: 'Base Sepolia',
+    chainId: 84532,
     asset: 'ETH',
     assetLogo: '⟠',
     amount: 0.3,
-    currentApy: 3.2,
-    status: 'optimal',
-    daysDeployed: 65,
-    totalEarned: 0.0172
+    currentApy: 3.5,
+    status: 'underperforming',
+    daysDeployed: 30,
+    totalEarned: 0.0086
   },
   {
     id: '3',
-    protocol: 'Compound V3',
-    protocolLogo: '🏛️',
-    chain: 'Arbitrum',
-    chainId: 42161,
-    asset: 'USDT',
-    assetLogo: '💲',
-    amount: 150,
-    currentApy: 6.5,
-    status: 'underperforming',
-    daysDeployed: 22,
-    totalEarned: 0.59
+    protocol: 'Testnet Position',
+    protocolLogo: '🧪',
+    chain: 'Arbitrum Sepolia',
+    chainId: 421614,
+    asset: 'ETH',
+    assetLogo: '⟠',
+    amount: 0.2,
+    currentApy: 3.5,
+    status: 'optimal',
+    daysDeployed: 20,
+    totalEarned: 0.0038
   }
 ];
 
-// Mock opportunities for migration - College Student Amounts
+// Mock opportunities for migration - Testnet Amounts
 export const MOCK_OPPORTUNITIES = [
   {
-    positionId: '1',
-    targetProtocol: 'Aave V3',
-    targetProtocolLogo: '🏦',
-    targetChain: 'Base',
-    targetChainId: 8453,
-    asset: 'USDC',
-    assetLogo: '💵',
-    amount: 450,
-    currentApy: 8.1,
-    targetApy: 14.2,
-    apyDifferential: 6.1,
-    score: 91,
-    annualGain: 27.45,
+    positionId: '2',
+    targetProtocol: 'Testnet Position',
+    targetProtocolLogo: '🧪',
+    targetChain: 'Arbitrum Sepolia',
+    targetChainId: 421614,
+    asset: 'ETH',
+    assetLogo: '⟠',
+    amount: 0.3,
+    currentApy: 3.5,
+    targetApy: 5.2,
+    apyDifferential: 1.7,
+    score: 75,
+    annualGain: 0.0051,
     costs: {
-      bridge: 1.20,
-      gas: 0.50,
-      total: 1.70
+      bridge: 0.0001,
+      gas: 0.0001,
+      total: 0.0002
     },
-    breakeven: 22.6, // days
-    protocolSafetyScore: 9,
+    breakeven: 14.3, // days
+    protocolSafetyScore: 8,
     socialProof: {
-      similarWallets: 127,
-      avgGain: 32,
+      similarWallets: 45,
+      avgGain: 0.006,
       timeframe: '7 days'
     },
     timing: {
-      recommendation: 'Great learning opportunity',
-      reason: 'Low cost, high APY gain',
-      urgency: 'medium'
-    },
-    migrationSteps: [
-      'Withdraw 450 USDC from Aave V3 on Ethereum',
-      'Bridge USDC from Ethereum to Base via Across Protocol ($1.20 fee)',
-      'Deposit 450 USDC to Aave V3 on Base',
-      'Start earning 14.2% APY'
-    ]
-  },
-  {
-    positionId: '1',
-    targetProtocol: 'Compound V3',
-    targetProtocolLogo: '🏛️',
-    targetChain: 'Base',
-    targetChainId: 8453,
-    asset: 'USDC',
-    assetLogo: '💵',
-    amount: 450,
-    currentApy: 8.1,
-    targetApy: 12.8,
-    apyDifferential: 4.7,
-    score: 78,
-    annualGain: 21.15,
-    costs: {
-      bridge: 1.20,
-      gas: 0.50,
-      total: 1.70
-    },
-    breakeven: 29.3, // days
-    protocolSafetyScore: 8.5,
-    socialProof: {
-      similarWallets: 89,
-      avgGain: 24,
-      timeframe: '14 days'
-    },
-    timing: {
-      recommendation: 'Good starter opportunity',
-      reason: 'Compound is beginner-friendly',
+      recommendation: 'Good testnet opportunity',
+      reason: 'Low cost, practice migration',
       urgency: 'low'
     },
     migrationSteps: [
-      'Withdraw 450 USDC from Aave V3 on Ethereum',
-      'Bridge USDC from Ethereum to Base via Across Protocol ($1.20 fee)',
-      'Deposit 450 USDC to Compound V3 on Base',
-      'Start earning 12.8% APY'
-    ]
-  },
-  {
-    positionId: '3',
-    targetProtocol: 'Aave V3',
-    targetProtocolLogo: '🏦',
-    targetChain: 'Base',
-    targetChainId: 8453,
-    asset: 'USDT',
-    assetLogo: '💲',
-    amount: 150,
-    currentApy: 6.5,
-    targetApy: 11.2,
-    apyDifferential: 4.7,
-    score: 82,
-    annualGain: 7.05,
-    costs: {
-      bridge: 0.80,
-      gas: 0.40,
-      total: 1.20
-    },
-    breakeven: 62.1, // days
-    protocolSafetyScore: 9,
-    socialProof: {
-      similarWallets: 156,
-      avgGain: 8,
-      timeframe: '7 days'
-    },
-    timing: {
-      recommendation: 'Consider after gaining experience',
-      reason: 'Smaller amount, learn basics first',
-      urgency: 'low'
-    },
-    migrationSteps: [
-      'Withdraw 150 USDT from Compound V3 on Arbitrum',
-      'Bridge USDT from Arbitrum to Base via Across Protocol ($0.80 fee)',
-      'Deposit 150 USDT to Aave V3 on Base',
-      'Start earning 11.2% APY'
+      'Withdraw 0.3 ETH from Base Sepolia',
+      'Bridge ETH from Base Sepolia to Arbitrum Sepolia (minimal fee)',
+      'Deposit 0.3 ETH on Arbitrum Sepolia',
+      'Start earning higher APY'
     ]
   }
 ];

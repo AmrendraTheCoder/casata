@@ -1,7 +1,8 @@
 import { formatCurrency } from '../utils/constants';
 
-const AlertBanner = ({ underperformingCount, totalPotentialGain }) => {
-  if (underperformingCount === 0) {
+const AlertBanner = ({ underperformingCount, totalPotentialGain, healthScore }) => {
+  // If health score is 100 (perfect), show optimized message
+  if (healthScore === 100 || underperformingCount === 0) {
     return (
       <div className="card-premium bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 mb-8 slide-up">
         <div className="flex items-center gap-4">
@@ -11,13 +12,18 @@ const AlertBanner = ({ underperformingCount, totalPotentialGain }) => {
           <div className="flex-1">
             <p className="font-bold text-green-700 text-lg mb-1">Portfolio Optimized</p>
             <p className="text-sm text-green-600">
-              All positions are performing well. We'll notify you when better opportunities appear.
+              Your portfolio health is {healthScore}/100. All positions are performing well. We'll notify you when better opportunities appear.
             </p>
           </div>
           <div className="text-4xl">🎉</div>
         </div>
       </div>
     );
+  }
+  
+  // Only show opportunities if health score is less than 100
+  if (healthScore >= 100) {
+    return null;
   }
 
   return (
