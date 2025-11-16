@@ -5,28 +5,28 @@ const Vocabulary = () => {
     {
       term: "APY (Annual Percentage Yield)",
       definition: "The total return on your investment over a year, including compound interest. For example, 10% APY means your $1000 will grow to $1100 in one year.",
-      example: "If Aave offers 5% APY on USDC and Compound offers 7%, you'll earn more on Compound.",
+      example: "If one platform offers 5% APY and another offers 7%, you'll earn more with the higher APY.",
       category: "Basic",
       icon: "📊"
     },
     {
       term: "DeFi (Decentralized Finance)",
       definition: "Financial services built on blockchain that don't require traditional banks. You interact directly with smart contracts.",
-      example: "Instead of a bank savings account, you can lend USDC on Aave and earn yield.",
+      example: "Instead of a bank savings account, you can use DeFi platforms to manage and transfer your crypto assets.",
       category: "Basic",
       icon: "🏦"
     },
     {
       term: "Protocol",
       definition: "A DeFi platform or application. Each protocol has its own smart contracts and rules.",
-      example: "Aave, Compound, and Curve are all popular DeFi protocols.",
+      example: "Different platforms serve different purposes - some for trading, some for lending, some for bridging between chains.",
       category: "Basic",
       icon: "🔧"
     },
     {
       term: "Bridge",
       definition: "A service that moves your crypto assets from one blockchain to another.",
-      example: "To move USDC from Ethereum to Arbitrum, you'd use a bridge like Stargate.",
+      example: "To move ETH from Ethereum to Arbitrum, you'd use a bridge service.",
       category: "Basic",
       icon: "🌉"
     },
@@ -40,49 +40,49 @@ const Vocabulary = () => {
     {
       term: "Liquidity Pool",
       definition: "A smart contract holding pairs of tokens that enables trading. You can deposit your tokens and earn fees.",
-      example: "The ETH/USDC pool on Uniswap allows people to swap between ETH and USDC.",
+      example: "A liquidity pool with two tokens allows people to swap between them without needing a traditional exchange.",
       category: "Intermediate",
       icon: "💧"
     },
     {
       term: "Lending Protocol",
       definition: "A platform where you can lend your crypto to earn interest, or borrow crypto by providing collateral.",
-      example: "Deposit USDC on Aave to earn 5% APY, or use your ETH as collateral to borrow USDC.",
+      example: "Deposit crypto to earn interest, or use your assets as collateral to borrow other tokens.",
       category: "Intermediate",
       icon: "🏦"
     },
     {
       term: "Staking",
-      definition: "Locking your crypto in a protocol to help secure the network or earn rewards.",
+      definition: "Locking your crypto to help secure the network or earn rewards.",
       example: "Stake your ETH to earn staking rewards, or stake LP tokens in a farm to earn extra tokens.",
       category: "Intermediate",
       icon: "🔒"
     },
     {
       term: "Yield Farming",
-      definition: "Moving your crypto between different protocols to maximize returns. Often involves multiple steps.",
-      example: "Deposit USDC in Curve, stake the LP token in Convex, then stake the Convex receipt for maximum yield.",
+      definition: "Moving your crypto between different platforms to maximize returns. Often involves multiple steps.",
+      example: "Deposit tokens in a liquidity pool, stake the receipt tokens, and earn rewards from multiple sources.",
       category: "Advanced",
       icon: "🌾"
     },
     {
       term: "Impermanent Loss",
       definition: "The temporary loss you might face when providing liquidity to a pool if token prices diverge.",
-      example: "If you provide ETH/USDC liquidity and ETH doubles in price, you'd have made more profit just holding ETH.",
+      example: "If you provide liquidity with two tokens and one doubles in price, you'd have made more profit just holding that token.",
       category: "Advanced",
       icon: "📉"
     },
     {
       term: "Smart Contract",
       definition: "Self-executing code on the blockchain that runs automatically when conditions are met.",
-      example: "When you lend on Aave, a smart contract automatically calculates and deposits your interest.",
+      example: "When you send a transaction, a smart contract can automatically execute actions like transfers or swaps.",
       category: "Basic",
       icon: "📜"
     },
     {
       term: "TVL (Total Value Locked)",
-      definition: "The total amount of money deposited in a DeFi protocol. Higher TVL often means more trust.",
-      example: "Aave has $10B TVL, meaning users have deposited $10 billion worth of crypto.",
+      definition: "The total amount of money deposited in a DeFi platform. Higher TVL often means more trust.",
+      example: "A platform with $10B TVL means users have deposited $10 billion worth of crypto, indicating high trust.",
       category: "Intermediate",
       icon: "💰"
     },
@@ -102,8 +102,8 @@ const Vocabulary = () => {
     },
     {
       term: "Protocol Safety Enchantment",
-      definition: "The Genie's rating (0-10) of how secure and reliable a protocol is, based on audits, track record, and TVL.",
-      example: "Aave has a 9/10 safety enchantment due to multiple audits and years of operation without hacks.",
+      definition: "The Genie's rating (0-10) of how secure and reliable a platform is, based on audits, track record, and TVL.",
+      example: "A platform with a 9/10 safety enchantment has multiple audits and years of operation without hacks.",
       category: "LampFi",
       icon: "🛡️"
     },
@@ -117,14 +117,14 @@ const Vocabulary = () => {
     {
       term: "Slippage",
       definition: "The difference between expected and actual price when making a trade. Higher in low liquidity pools.",
-      example: "You try to swap $1000 USDC for ETH but due to slippage, you get slightly less ETH than expected.",
+      example: "You try to swap tokens but due to slippage, you get slightly less than expected based on the quoted price.",
       category: "Advanced",
       icon: "📊"
     },
     {
       term: "Collateral",
       definition: "Assets you deposit to secure a loan in DeFi. If the loan isn't repaid, collateral can be liquidated.",
-      example: "Deposit $2000 worth of ETH to borrow $1000 USDC on Aave.",
+      example: "Deposit $2000 worth of ETH to borrow $1000 worth of another token on a lending platform.",
       category: "Intermediate",
       icon: "💎"
     },
