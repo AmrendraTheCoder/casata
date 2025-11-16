@@ -157,9 +157,9 @@ const Vocabulary = () => {
       icon: "✨"
     },
     {
-      term: "Prosperity NFT Generator",
-      definition: "LampFi feature that creates a shareable mystical NFT image of your prosperity statistics.",
-      example: "Generate a prosperity NFT showing your score, riches, and mystical activity to share on social media.",
+      term: "Prosperity Score Generator",
+      definition: "LampFi feature that creates a shareable mystical score image of your prosperity statistics.",
+      example: "Generate a prosperity score image showing your score, riches, and mystical activity to share on social media.",
       category: "LampFi",
       icon: "📸"
     },

@@ -22,7 +22,7 @@ const HowToUse = () => {
         "See your total riches across Sepolia mystical realms",
         "View last 20 mystical transactions with realm filtering",
         "Check your Prosperity Score (0-100 blessing)",
-        "Generate and share prosperity NFT images"
+        "Generate and share prosperity score images"
       ],
       icon: "💎"
     },
