@@ -64,7 +64,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
 
   const downloadImage = async () => {
     if (!imageRef.current) return;
-    
+
     setIsGenerating(true);
     try {
       const canvas = await html2canvas(imageRef.current, {
@@ -203,7 +203,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
       {/* Card Preview */}
       <div className="border-4 border-lamp-purple-500/30 rounded-2xl p-6 bg-gradient-to-br from-lamp-night-800 to-lamp-night-900">
         <p className="text-sm text-lamp-gold-400 mb-4 text-center font-semibold">✨ Your Unique Prosperity Card Preview</p>
-        
+
         {/* Prosperity Card Image to be generated */}
         <div
           ref={imageRef}
@@ -248,7 +248,7 @@ const PortfolioImageGenerator = ({ stats, healthScore, address }) => {
                     <div className="text-3xl text-white/80 font-bold">/100</div>
                   </div>
                   <div className="mt-2 text-sm font-bold text-white/90">{status.emoji} {status.label}</div>
-                  
+
                   {/* Progress bar */}
                   <div className="w-full bg-white/20 rounded-full h-3 mt-4 overflow-hidden">
                     <div
